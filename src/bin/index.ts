@@ -1,0 +1,20 @@
+import { cac } from "cac";
+
+const version = require("../../package.json").version;
+
+const cli = cac("redoc").version(version).help();
+
+cli
+    .command("[root]", "start dev server")
+    .alias("dev")
+    .action(async (root: string) => {
+        console.log("Starting dev server...", root);
+    })
+
+cli
+    .command("build [root]", "build for production")
+    .action(async (root: string) => {
+        console.log("Building for production...", root);
+    });
+
+cli.parse();
