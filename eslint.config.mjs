@@ -44,6 +44,7 @@ export default defineConfig([
       'quotes': ['error', 'single'],
       'semi': ['error', 'always'],
       'react/react-in-jsx-scope': 'off',
+      'react/no-unknown-property': 'off',
     },
     settings: {
       react: {

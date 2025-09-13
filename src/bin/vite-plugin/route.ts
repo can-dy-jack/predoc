@@ -13,6 +13,7 @@ export interface RouteItem {
 
 interface pluginRouteOption {
   root: string;
+  ssr: boolean;
 }
 
 export function pluginRoute(option: pluginRouteOption): Plugin {
@@ -30,7 +31,7 @@ export function pluginRoute(option: pluginRouteOption): Plugin {
     },
     load(id) {
       if (id === '\0' + ROUTE_MODULE_ID) {
-        return route.generateRoutesCode();
+        return route.generateRoutesCode(option.ssr || false);
       }
     }
   };
@@ -50,7 +51,7 @@ export class Route {
 
   async init() {
     const files = fastGlob
-      .sync(['**/*.{js,jsx,ts,tsx,md,mdx}'], {
+      .sync(['**/*.{jsx,tsx,md,mdx}'], {
         cwd: this.#scanDir,
         absolute: true,
         ignore: ['**/node_modules/**', '**/build/**', 'config.ts']
@@ -76,13 +77,15 @@ export class Route {
     return routePath.startsWith('/') ? routePath : `/${routePath}`;
   }
 
-  generateRoutesCode() {
+  generateRoutesCode(ssr: boolean = false) {
     return `
 import React from 'react';
-import loadable from '@loadable/component';
+${ssr ? '' : 'import loadable from \'@loadable/component\';'}
 ${this.#routeData
   .map((route, index) => {
-    return `const Route${index} = loadable(() => import('${route.absolutePath}'));`;
+    return ssr ? 
+      `import Route${index} from '${route.absolutePath}';` :
+      `const Route${index} = loadable(() => import('${route.absolutePath}'));`;
   })
   .join('\n')}
 export const routes = [

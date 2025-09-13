@@ -10,11 +10,9 @@ import { createVitePlugin } from './vite-plugin';
 export async function build(root: string = process.cwd(), config: SiteConfig) {
   const [clientResult] = await bundle(root, config);
 
-  console.log('clientResult.', clientResult);
-
   const serverEntry = join(root, '.redoc', 'ssr.js');
-  const { render } = await import(pathToFileURL(serverEntry).href);
-  renderPage(render, root, clientResult);
+  const { render, routes } = await import(pathToFileURL(serverEntry).href);
+  renderPage(render, routes, root, clientResult);
 }
 
 async function bundle(root: string, config: SiteConfig) {
@@ -23,13 +21,13 @@ async function bundle(root: string, config: SiteConfig) {
     return {
       root,
       mode: 'production',
-      plugins: createVitePlugin(config),
+      plugins: createVitePlugin(config, undefined, isServer),
       ssr: {
         noExternal: ['react-router-dom'],
       },
       build: {
         ssr: isServer,
-        outDir: isServer ? '.redoc' : 'build',
+        outDir: isServer ? join(root, '.redoc') : join(root, 'build'),
         rollupOptions: {
           input: isServer ? SERVER_ENTRY_PATH : CLIENT_ENTRY_PATH,
           output: {

@@ -2,10 +2,12 @@ import { renderToString } from 'react-dom/server';
 import { App } from './App';
 import { StaticRouter } from 'react-router-dom';
 
-export function render() {
+export function render(pagePath: string) {
   return renderToString(
-    <StaticRouter location="/" >
+    <StaticRouter location={pagePath} >
       <App />
     </StaticRouter>
   );
 }
+
+export { routes } from 'redoc:route';
