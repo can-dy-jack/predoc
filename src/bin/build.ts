@@ -1,13 +1,11 @@
 import { build as buildVite, InlineConfig } from 'vite';
 import { CLIENT_ENTRY_PATH, SERVER_ENTRY_PATH } from './constant';
-// @ts-expect-error I known what I'm doing
-import pluginReact from '@vitejs/plugin-react';
 import { join } from 'path';
 import { renderPage } from './renderPage';
 import { RollupOutput } from 'rollup';
 import { pathToFileURL } from 'url';
 import { SiteConfig } from '../config/type';
-import { pluginConfig } from './vite-plugin/config';
+import { createVitePlugin } from './vite-plugin';
 
 export async function build(root: string = process.cwd(), config: SiteConfig) {
   const [clientResult] = await bundle(root, config);
@@ -25,7 +23,7 @@ async function bundle(root: string, config: SiteConfig) {
     return {
       root,
       mode: 'production',
-      plugins: [pluginReact(), pluginConfig(config, async () => {})],
+      plugins: createVitePlugin(config),
       ssr: {
         noExternal: ['react-router-dom'],
       },
