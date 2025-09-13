@@ -14,6 +14,7 @@ export function createVitePlugin(
     pluginHTML(),
     pluginReact({
       jsxRuntime: 'automatic',
+      // reactRefreshHost: 'http://localhost:3000',
     }),
     pluginConfig(config, restartServer),
     pluginRoute({ root: config.root }),

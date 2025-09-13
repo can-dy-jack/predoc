@@ -6,11 +6,17 @@ import remarkMDXFrontMatter from 'remark-mdx-frontmatter';
 import remarkFrontmatter from 'remark-frontmatter';
 import { rehypePluginCodeLine } from './rehype/codeLine';
 import rehypeShiki from '@shikijs/rehype';
+import { remarkPluginToc } from './remark/toc';
 
 export function pluginMdxRollup() {
   return [
     pluginMdx({
-      remarkPlugins: [remarkGfm, remarkFrontmatter, remarkMDXFrontMatter],
+      remarkPlugins: [
+        remarkGfm, 
+        remarkFrontmatter, 
+        remarkMDXFrontMatter,
+        remarkPluginToc,
+      ],
       rehypePlugins: [
         rehypeSlug,
         [
