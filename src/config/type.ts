@@ -1,5 +1,11 @@
 import type { UserConfig as ViteConfig } from 'vite';
 
+export interface SiteConfig {
+  root: string;
+  configPath: string;
+  siteData: UserConfig;
+}
+
 export interface UserConfig {
   vite?: ViteConfig;
   themeConfig?: ThemeConfig;

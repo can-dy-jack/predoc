@@ -51,14 +51,14 @@ export default defineConfig([
       }
     },
     ignores: [
-      'dist/**', 
-      'node_modules/**', 
-      '.bin/**', 
-      '.redoc/**',
+      'dist/', 
+      'node_modules', 
+      '.bin/', 
+      '.redoc/',
       'package.json',
       'pnpm-lock.yaml',
-      'bin',
-      'docs'
+      'bin/',
+      'docs/'
     ]
   },
 ]);

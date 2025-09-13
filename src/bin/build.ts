@@ -1,28 +1,34 @@
 import { build as buildVite, InlineConfig } from 'vite';
 import { CLIENT_ENTRY_PATH, SERVER_ENTRY_PATH } from './constant';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
+// @ts-expect-error I known what I'm doing
 import pluginReact from '@vitejs/plugin-react';
 import { join } from 'path';
 import { renderPage } from './renderPage';
 import { RollupOutput } from 'rollup';
 import { pathToFileURL } from 'url';
+import { SiteConfig } from '../config/type';
+import { pluginConfig } from './vite-plugin/config';
 
-export async function build(root: string = process.cwd()) {
-  const [clientResult, serverResult] = await bundle(root);
+export async function build(root: string = process.cwd(), config: SiteConfig) {
+  const [clientResult] = await bundle(root, config);
+
+  console.log('clientResult.', clientResult);
 
   const serverEntry = join(root, '.redoc', 'ssr.js');
   const { render } = await import(pathToFileURL(serverEntry).href);
   renderPage(render, root, clientResult);
 }
 
-async function bundle(root: string) {
+async function bundle(root: string, config: SiteConfig) {
   const resolveConfig = (type: 'client' | 'server'): InlineConfig => {
     const isServer = type === 'server';
     return {
       root,
       mode: 'production',
-      plugins: [pluginReact()],
+      plugins: [pluginReact(), pluginConfig(config, async () => {})],
+      ssr: {
+        noExternal: ['react-router-dom'],
+      },
       build: {
         ssr: isServer,
         outDir: isServer ? '.redoc' : 'build',
@@ -45,5 +51,8 @@ async function bundle(root: string) {
     ]);
 
     return [clientResult, serverResult] as [RollupOutput, RollupOutput];
-  } catch (e) {}
+  } catch (e) {
+    console.error(e);
+    throw e;
+  }
 }

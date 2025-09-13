@@ -26,6 +26,9 @@ export async function renderPage(
     <script type="module" src="/${clientChunk?.fileName}"></script>
   </body>
 </html>`.trim();
+
+console.log('Writing page to disk...');
+
   await fs.ensureDir(join(root, 'build'));
   await fs.writeFile(join(root, 'build/index.html'), html);
   await fs.remove(join(root, '.redoc'));
