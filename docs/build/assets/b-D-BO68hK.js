@@ -1,1 +1,0 @@
-import{jsx as n,Fragment as r}from"react/jsx-runtime";const a=void 0,u=[];function o(t){return n(r,{})}function f(t={}){const{wrapper:e}=t.components||{};return e?n(e,{...t,children:n(o,{...t})}):o()}export{f as default,a as frontmatter,u as toc};
