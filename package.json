@@ -1,6 +1,5 @@
 {
   "name": "predoc",
-  "private": true,
   "version": "0.1.0",
   "license": "MIT",
   "author": "can-dy-jack",
@@ -10,8 +9,7 @@
     ".bin",
     ".vscode",
     "readme.md",
-    "scripts",
-    "dist"
+    "scripts"
   ],
   "bin": {
     "predoc": "./.bin/predoc.js"
