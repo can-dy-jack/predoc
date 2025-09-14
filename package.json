@@ -1,10 +1,20 @@
 {
-  "name": "redoc",
+  "name": "predoc",
   "private": true,
   "version": "0.1.0-alpha.0",
   "license": "MIT",
+  "author": "can-dy-jack",
+  "files": [
+    "src",
+    "index.html",
+    ".bin",
+    ".vscode",
+    "readme.md",
+    "scripts",
+    "dist"
+  ],
   "bin": {
-    "redoc": "./dist/bin/index.js"
+    "predoc": "./.bin/predoc.js"
   },
   "scripts": {
     "tsc": "tsc -w",
@@ -12,8 +22,7 @@
     "build": "tsup && pnpm build:deps",
     "build:deps": "tsx ./scripts/prebundle.ts",
     "lint": "eslint --ext .ts,.tsx,.js,.jsx ./src",
-    "lint:fix": "eslint --fix --ext .ts,.tsx,.js,.jsx ./src",
-    "prepare": "husky install"
+    "lint:fix": "eslint --fix --ext .ts,.tsx,.js,.jsx ./src"
   },
   "devDependencies": {
     "@eslint/js": "^9.35.0",

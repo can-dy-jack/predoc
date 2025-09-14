@@ -2,7 +2,7 @@ import { normalizePath, Plugin } from 'vite';
 import fastGlob from 'fast-glob';
 import { relative } from 'path';
 
-export const ROUTE_MODULE_ID = 'redoc:route';
+export const ROUTE_MODULE_ID = 'predoc:route';
 
 interface pluginRouteOption {
   root: string;

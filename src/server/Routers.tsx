@@ -1,5 +1,5 @@
 import { useRoutes } from 'react-router-dom';
-import { routes } from 'redoc:route';
+import { routes } from 'predoc:route';
 
 export const Routers = () => {
   // console.log('routes', routes);

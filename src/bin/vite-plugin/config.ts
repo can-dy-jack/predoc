@@ -5,11 +5,11 @@ import { ROOT } from '../constant';
 import { pathExists } from 'fs-extra';
 import sirv from 'sirv';
 
-export const SITE_DATA_ID = 'redoc:site-data';
+export const SITE_DATA_ID = 'predoc:site-data';
 
 export function pluginConfig(config: SiteConfig, restartServer: () => Promise<void>): Plugin {
   return {
-    name: 'redoc:config',
+    name: 'predoc:config',
     resolveId(source) {
       if (source === SITE_DATA_ID) {
         return '\0' + SITE_DATA_ID;

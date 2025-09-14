@@ -11,7 +11,7 @@ import fs from 'fs-extra';
 export async function build(root: string = process.cwd(), config: SiteConfig) {
   const [clientResult] = await bundle(root, config);
 
-  const serverEntry = join(root, '.redoc', 'ssr.js');
+  const serverEntry = join(root, '.predoc', 'ssr.js');
   const { render, routes } = await import(pathToFileURL(serverEntry).href);
   renderPage(render, routes, root, clientResult);
 }
@@ -28,7 +28,7 @@ async function bundle(root: string, config: SiteConfig) {
       },
       build: {
         ssr: isServer,
-        outDir: isServer ? join(root, '.redoc') : join(root, CLIENT_OUTPUT),
+        outDir: isServer ? join(root, '.predoc') : join(root, CLIENT_OUTPUT),
         rollupOptions: {
           input: isServer ? SERVER_ENTRY_PATH : CLIENT_ENTRY_PATH,
           output: {

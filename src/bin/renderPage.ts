@@ -65,7 +65,7 @@ export async function renderPage(
             }
           </script>
             <script type="module">${islandsCode}</script>
-            <div id="redoc-app">${appHtml}</div>
+            <div id="predoc-app">${appHtml}</div>
             <script type="module" src="/${clientChunk?.fileName}"></script>
             <script id="island-props">${JSON.stringify(islandProps)}</script>
           </body>

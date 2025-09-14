@@ -1,7 +1,7 @@
 import { createRoot, hydrateRoot } from 'react-dom/client';
 import { ComponentType } from 'react';
 import { App, initPageData } from '../client/App';
-// import siteData from 'redoc:site-data';
+// import siteData from 'predoc:site-data';
 import { BrowserRouter } from 'react-router-dom';
 import { PageDataContext } from '../client';
 import { HelmetProvider } from 'react-helmet-async';
@@ -15,7 +15,7 @@ declare global {
 
 
 async function render2Browser() {
-  const root = document.getElementById('redoc-app');
+  const root = document.getElementById('predoc-app');
 
   if (!root) {
     throw new Error('Root element not found');

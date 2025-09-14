@@ -4,7 +4,7 @@ import { CLIENT_ENTRY_PATH, HTML_PATH } from '../constant';
 
 export function pluginHTML(): Plugin {
   return {
-    name: 'redoc:html',
+    name: 'predoc:html',
     apply: 'serve',
     configureServer(server) {
       return () => {

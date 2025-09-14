@@ -9,7 +9,7 @@ export function pluginViteUnocss() {
       [
         /^divider-(\w+)$/,
         ([, w]) => ({
-          [`border-${w}`]: '1px solid var(--redoc-border-light)'
+          [`border-${w}`]: '1px solid var(--predoc-border-light)'
         })
       ],
       [

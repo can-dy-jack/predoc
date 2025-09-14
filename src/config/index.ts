@@ -24,7 +24,7 @@ export async function resolveConfig(
 
 export function resolveSiteData(userConfig: UserConfig): UserConfig {
   return {
-    title: userConfig.title || 'Redoc',
+    title: userConfig.title || 'predoc',
     description: userConfig.description || 'SSG Framework',
     themeConfig: userConfig.themeConfig || {},
     vite: userConfig.vite || {}

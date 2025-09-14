@@ -1,8 +1,8 @@
 import { matchRoutes } from 'react-router-dom';
 import { PageData } from './type';
 import { Layout } from './Layout';
-import { routes } from 'redoc:route';
-import siteData from 'redoc:site-data';
+import { routes } from 'predoc:route';
+import siteData from 'predoc:site-data';
 
 export function App() {
   return <Layout />;

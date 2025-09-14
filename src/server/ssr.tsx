@@ -35,4 +35,4 @@ export async function render(pagePath: string, helmetContext: object) {
   };
 }
 
-export { routes } from 'redoc:route';
+export { routes } from 'predoc:route';

@@ -27,7 +27,7 @@ export async function buildIslands(
     },
     build: {
       // 输出目录
-      outDir: join(root, '.redoc'),
+      outDir: join(root, '.predoc'),
       rollupOptions: {
         input: injectId,
         external: EXTERNALS

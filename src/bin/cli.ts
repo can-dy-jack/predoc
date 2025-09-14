@@ -6,7 +6,7 @@ import { version } from '../../package.json';
 import { resolveConfig } from '../config';
 import { preview } from './preview';
 
-const cli = cac('redoc').version(version).help();
+const cli = cac('predoc').version(version).help();
 
 cli
   .command('[root]', 'start dev server')

@@ -33,7 +33,7 @@ export function Navigation() {
             hover="opacity-60"
             className="w-full h-full text-1rem font-semibold flex items-center"
           >
-            Redoc
+            predoc
           </a>
         </div>
         <div flex="~">

@@ -22,7 +22,7 @@ export function DocLayout() {
       <Sidebar sidebarData={matchedSidebar} pathname={pathname} />
       <div>
         <div>
-          <div className="redoc-doc">
+          <div className="predoc-doc">
             <Routers />
           </div>
           <div>

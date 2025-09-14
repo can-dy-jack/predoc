@@ -55,7 +55,7 @@ export default defineConfig([
       'dist/', 
       'node_modules', 
       '.bin/', 
-      '.redoc/',
+      '.predoc/',
       'package.json',
       'pnpm-lock.yaml',
       'bin/',
