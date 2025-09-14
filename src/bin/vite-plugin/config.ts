@@ -2,6 +2,8 @@ import { Plugin } from 'vite';
 import { SiteConfig } from '../../config/type';
 import { join, relative } from 'path';
 import { ROOT } from '../constant';
+import { pathExists } from 'fs-extra';
+import sirv from 'sirv';
 
 export const SITE_DATA_ID = 'redoc:site-data';
 
@@ -38,8 +40,19 @@ export function pluginConfig(config: SiteConfig, restartServer: () => Promise<vo
           alias: {
             '@server': join(ROOT, 'src', 'server', 'index.ts'),
           }
+        },
+        css: {
+          modules: {
+            localsConvention: 'camelCaseOnly',
+          }
         }
       };
+    },
+    configureServer(server) {
+      const publicDir = join(config.root, 'public');
+      if (pathExists(publicDir)) {
+        server.middlewares.use(sirv(publicDir));
+      }
     }
   };
 }

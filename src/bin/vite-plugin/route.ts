@@ -1,15 +1,8 @@
 import { normalizePath, Plugin } from 'vite';
 import fastGlob from 'fast-glob';
 import { relative } from 'path';
-import type { ReactElement } from 'react';
 
 export const ROUTE_MODULE_ID = 'redoc:route';
-
-export interface RouteItem {
-  path: string;
-  element: ReactElement;
-  filePath: string;
-}
 
 interface pluginRouteOption {
   root: string;
@@ -91,7 +84,7 @@ ${this.#routeData
 export const routes = [
 ${this.#routeData
   .map((route, index) => {
-    return `{ path: '${route.routePath}', element: React.createElement(Route${index}) }`;
+    return `{ path: '${route.routePath}', element: React.createElement(Route${index}), preload: () => import('${route.absolutePath}') }`;
   })
   .join(',\n')}
 ];`;

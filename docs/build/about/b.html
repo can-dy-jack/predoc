@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+        <html>
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width,initial-scale=1">
+            <title data-rh="true"></title>
+            
+            
+            
+            <meta name="description" content="xxx">
+            <link rel="stylesheet" href="/assets/client-BX0ZoqUp.css">
+          </head>
+          <body>
+          <script type="importmap">
+            {
+              "imports": {
+                "react": "/react.js","react-dom": "/react-dom.js","react-dom/client": "/react-dom_client.js","react/jsx-runtime": "/react_jsx-runtime.js"
+              }
+            }
+          </script>
+            <script type="module">import{jsx as o,jsxs as h}from"react/jsx-runtime";import{useRef as g,useEffect as w}from"react";let n=[];function x(){const r=document.getElementById("aside-marker"),i=document.getElementById("aside-container");if(!i)return;const l=56,s=()=>{if(n=Array.from(document.querySelectorAll(".island-doc .header-anchor")).filter(e=>e.parentElement?.tagName!=="H1"),document.documentElement.scrollTop+window.innerHeight>=document.documentElement.scrollHeight){t(n,n.length-1);return}for(let e=0;e<n.length;e++){const a=n[e],m=n[e+1],d=Math.ceil(window.scrollY),p=a.parentElement.offsetTop-l;if(!m){t(n,e);break}if(e===0&&d<p||d==0){t(n,0);break}const f=m.parentElement.offsetTop-l;if(d>=p&&d<f){t(n,e);break}}},u=Array.from(i?.getElementsByTagName("a")||[]).map(c=>decodeURIComponent(c.hash)),t=(c,e)=>{if(c[e]){const a=c[e].getAttribute("href"),m=u.findIndex(p=>p===a);i?.querySelector(`a[href="#${a.slice(1)}"]`)&&(r.style.top=`${33+m*28}px`,r.style.opacity="1")}};return window.addEventListener("scroll",s),()=>{window.removeEventListener("scroll",s)}}function v(r,i){const l=parseInt(window.getComputedStyle(r).paddingTop,10),s=window.scrollY+r.getBoundingClientRect().top+l-50;window.scrollTo({left:0,top:s,behavior:"auto"})}function y(r){const{headers:i=[]}=r,l=i.length>0,s=g(null);w(()=>{const t=x();return()=>{t()}},[]);const u=t=>o("li",{children:o("a",{href:`#${t.id}`,className:"block leading-7 text-text-2 hover:text-text-1",transition:"color duration-300",style:{paddingLeft:(t.depth-2)*12},onClick:c=>{c.preventDefault();const e=document.getElementById(t.id);e&&v(e)},children:t.text})},t.id);return o("div",{flex:"~ col 1",style:{width:"var(--island-aside-width)"},children:o("div",{children:l&&h("div",{id:"aside-container",className:"relative divider-left pl-4 text-13px font-medium",children:[o("div",{ref:s,id:"aside-marker",className:"absolute top-33px opacity-0 w-1px h-18px bg-brand",style:{left:"-1px",transition:"top 0.25s cubic-bezier(0, 1, 0.5, 1), background-color 0.5s, opacity 0.25s"}}),o("div",{"leading-7":"~",text:"13px",font:"semibold",children:"ON THIS PAGE"}),o("nav",{children:o("ul",{relative:"~",children:i.map(u)})})]})})})}window.ISLANDS={Toc:y};window.ISLAND_PROPS=JSON.parse(document.getElementById("island-props").textContent);
+</script>
+            <div id="redoc-app"><header fixed="~" pos="t-0 l-0" w="full"><div flex="~" items="center" justify="between" class="px-8 h-14 divider-bottom"><div><a href="/" hover="opacity-60" class="w-full h-full text-1rem font-semibold flex items-center">Redoc</a></div><div flex="~"><div flex="~"><div><div class="text-sm font-medium mx-3"><a href="/" class="_link_191vy_1">主页</a></div></div><div><div class="text-sm font-medium mx-3"><a href="/guide/" class="_link_191vy_1">指南</a></div></div></div><div before="menu-item-before" flex="~"><button class="_switch_71i6k_1 undefined" id="" type="button" role="switch"><span class="_check_71i6k_17"><span class="_icon_71i6k_34"><div class="_sun_71i6k_57"><div class="i-carbon-sun" w="full" h="full"></div></div><div class="_moon_71i6k_61"><div class="i-carbon-moon" w="full" h="full"></div></div></span></span></button></div><div class="_social-link-icon_191vy_12" ml="2" before="menu-item-before"><a href="/"><div class="i-carbon-logo-github w-5 h-5 fill-current"></div></a></div></div></div></header><div><div><aside class="_sidebar_1jdja_1"><nav><section block="~" not-first="divider-top mt-4"><div flex="~" justify="between" items="center"><h2 m="t-3 b-2" text="1rem text-1" font="bold">About</h2></div><div mb="1"><div><div ml="5"><div p="1" block="~" text="sm" font-medium="~" class="text-text-2"><a href="/about/a" target="" class="_link_1hvqi_1 ">A</a></div></div></div><div><div ml="5"><div p="1" block="~" text="sm" font-medium="~" class="text-brand"><a href="/about/b" target="" class="_link_1hvqi_1 ">B</a></div></div></div></div></section></nav></aside><div><div><div class="redoc-doc"></div><div><footer mt="8"><div flex="~" gap="2" divider-top="~" pt="6"><div flex="~ col" class="_prev_6xv5j_1"><a href="/about/a" class="_pager-link_6xv5j_6"><span class="_desc_6xv5j_29">上一页</span><span class="_title_6xv5j_20">A</span></a></div><div flex="~ col" class="_next_6xv5j_2"></div></div></footer></div></div></div><div><div __island="Toc:0"><div flex="~ col 1" style="width:var(--island-aside-width)"><div></div></div></div></div></div></div></div>
+            <script type="module" src="/assets/client-CT1tgOun.js"></script>
+            <script id="island-props">[{"headers":[]}]</script>
+          </body>
+        </html>

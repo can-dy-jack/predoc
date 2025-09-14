@@ -1,3 +1,4 @@
+import { BuiltinTheme } from 'shiki';
 import type { UserConfig as ViteConfig } from 'vite';
 
 export interface SiteConfig {
@@ -17,6 +18,12 @@ export interface ThemeConfig {
   nav?: NavItemWithLink[];
   sidebar?: Sidebar;
   footer?: Footer;
+  codeLine?: {
+    theme?: BuiltinTheme | {
+      light: BuiltinTheme;
+      dark: BuiltinTheme;
+    }
+  }
 }
 
 export interface Footer {

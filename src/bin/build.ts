@@ -1,11 +1,12 @@
 import { build as buildVite, InlineConfig } from 'vite';
-import { CLIENT_ENTRY_PATH, SERVER_ENTRY_PATH } from './constant';
+import { CLIENT_ENTRY_PATH, CLIENT_OUTPUT, EXTERNALS, ROOT, SERVER_ENTRY_PATH } from './constant';
 import { join } from 'path';
 import { renderPage } from './renderPage';
 import { RollupOutput } from 'rollup';
 import { pathToFileURL } from 'url';
 import { SiteConfig } from '../config/type';
 import { createVitePlugin } from './vite-plugin';
+import fs from 'fs-extra';
 
 export async function build(root: string = process.cwd(), config: SiteConfig) {
   const [clientResult] = await bundle(root, config);
@@ -23,16 +24,17 @@ async function bundle(root: string, config: SiteConfig) {
       mode: 'production',
       plugins: createVitePlugin(config, undefined, isServer),
       ssr: {
-        noExternal: ['react-router-dom'],
+        noExternal: ['react-router-dom', 'lodash-es'],
       },
       build: {
         ssr: isServer,
-        outDir: isServer ? join(root, '.redoc') : join(root, 'build'),
+        outDir: isServer ? join(root, '.redoc') : join(root, CLIENT_OUTPUT),
         rollupOptions: {
           input: isServer ? SERVER_ENTRY_PATH : CLIENT_ENTRY_PATH,
           output: {
             format: isServer ? 'cjs' : 'esm',
           },
+          external: EXTERNALS,
         },
       },
     };
@@ -46,6 +48,13 @@ async function bundle(root: string, config: SiteConfig) {
       buildVite(resolveConfig('server')),
     ]);
 
+    const publicDir = join(root, 'public');
+    if (fs.pathExistsSync(publicDir)) {
+      console.log(233);
+      await fs.copy(publicDir, join(root, CLIENT_OUTPUT));
+    }
+
+    await fs.copy(join(ROOT, 'vendors'), join(root, CLIENT_OUTPUT));
     return [clientResult, serverResult] as [RollupOutput, RollupOutput];
   } catch (e) {
     console.error(e);

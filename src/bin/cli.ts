@@ -4,6 +4,7 @@ import { build } from './build';
 
 import { version } from '../../package.json';
 import { resolveConfig } from '../config';
+import { preview } from './preview';
 
 const cli = cac('redoc').version(version).help();
 
@@ -42,6 +43,18 @@ cli
       console.error(e);
     }
     // console.log("Building for production...", root);
+  });
+
+cli
+  .command('preview [root]', 'preview production build')
+  .option('--port <port>', 'port to use for preview server')
+  .action(async (root: string, { port }: { port: number }) => {
+    try {
+      root = resolve(root);
+      await preview(root, { port });
+    } catch (e) {
+      console.log(e);
+    }
   });
 
 cli.parse();

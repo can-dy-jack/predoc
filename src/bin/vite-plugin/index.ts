@@ -6,6 +6,10 @@ import { pluginRoute } from './route';
 import pluginReact from '@vitejs/plugin-react';
 import { createPluginMdx } from './mdx';
 import { pluginViteUnocss } from './unocss';
+import { join } from 'path';
+import { ROOT } from '../constant';
+import {babelPluginIsland} from './babel-plugin/island';
+import EnvironmentPlugin from 'vite-plugin-environment';
 
 export function createVitePlugin(
   config: SiteConfig,
@@ -13,14 +17,22 @@ export function createVitePlugin(
   isSSR: boolean = false
 ) {
   return [
+    EnvironmentPlugin({
+      NODE_ENV: isSSR ? 'development' : 'production',
+    }),
     pluginViteUnocss(),
     pluginHTML(),
     pluginReact({
       jsxRuntime: 'automatic',
-      // reactRefreshHost: 'http://localhost:3000',
+      jsxImportSource: isSSR ?
+        join(ROOT, 'src', 'server') :
+        'react',
+      babel: {
+        plugins: [babelPluginIsland]
+      }
     }),
     pluginConfig(config, restartServer),
     pluginRoute({ root: config.root, ssr: isSSR }),
-    createPluginMdx(),
+    createPluginMdx(config),
   ];
 }

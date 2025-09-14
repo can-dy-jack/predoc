@@ -17,16 +17,20 @@ interface ChildNode {
   children?: ChildNode[];
 }
 
-const slugger = new Slugger();
-
 export const remarkPluginToc: Plugin<[], Root> = () => {
   return (tree) => {
     const toc: TocItem[] = [];
+    const slugger = new Slugger();
+    let title = '';
 
     visit(tree, 'heading', (node) => {
       if (!node.depth || !node.children) {
         return;
       }
+      if (node.depth === 1) {
+        title = (node.children[0] as ChildNode).value;
+      }
+
       // h2 ~ h4
       if (node.depth > 1 && node.depth < 5) {
         const originText = (node.children as unknown as ChildNode[])
@@ -40,6 +44,7 @@ export const remarkPluginToc: Plugin<[], Root> = () => {
           })
           .join('');
         // 对标题文本进行规范化
+
         const id = slugger.slug(originText);
         toc.push({
           id,
@@ -61,5 +66,20 @@ export const remarkPluginToc: Plugin<[], Root> = () => {
         })
       }
     } as MdxjsEsm);
+
+    if (title) {
+      const insertedTitle = `export const title = '${title}';`;
+
+      tree.children.push({
+        type: 'mdxjsEsm',
+        value: insertedTitle,
+        data: {
+          estree: parse(insertedTitle, {
+            ecmaVersion: 2020,
+            sourceType: 'module'
+          })
+        }
+      } as MdxjsEsm);
+    }
   };
 };

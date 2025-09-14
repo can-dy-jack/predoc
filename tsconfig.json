@@ -13,8 +13,8 @@
     "resolveJsonModule": true,
     "paths": {
       "@server": ["./server/index.ts"],
-    }
+    },
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "scripts/prebundle.ts"],
   "exclude": ["node_modules", "dist", "docs"]
 }
