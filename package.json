@@ -1,7 +1,7 @@
 {
   "name": "predoc",
   "private": true,
-  "version": "0.1.0-alpha.0",
+  "version": "0.1.0",
   "license": "MIT",
   "author": "can-dy-jack",
   "files": [
