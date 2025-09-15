@@ -9,12 +9,12 @@
     "isolatedModules": true,
     "skipLibCheck": true,
     "allowJs": true,
-    "esModuleInterop": true,
     "resolveJsonModule": true,
+    "esModuleInterop": true,
     "paths": {
       "@server": ["./server/index.ts"],
     },
   },
-  "include": ["src/**/*", "scripts/prebundle.ts"],
+  "include": ["src/**/*", "scripts/prebundle.cts"],
   "exclude": ["node_modules", "dist", "docs"]
 }

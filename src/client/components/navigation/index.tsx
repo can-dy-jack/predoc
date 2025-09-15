@@ -17,7 +17,6 @@ export function MenuItem({ item }: { item: NavItemWithLink }) {
 export function Navigation() {
   const data = usePageData();
   const nav = data?.siteData?.siteData?.themeConfig?.nav || [];
-  console.log(1, 'siteData', data);
 
   return (
     <header fixed="~" pos="t-0 l-0" w="full">

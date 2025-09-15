@@ -10,7 +10,7 @@ export default defineConfig({
   splitting: true,
   minify: process.env.NODE_ENV === 'production',
   outDir: 'dist',
-  format: ['cjs', 'esm'],
+  format: ['esm'], // cjs
   dts: true,
   shims: true,
 });

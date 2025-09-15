@@ -32,7 +32,7 @@ async function bundle(root: string, config: SiteConfig) {
         rollupOptions: {
           input: isServer ? SERVER_ENTRY_PATH : CLIENT_ENTRY_PATH,
           output: {
-            format: isServer ? 'cjs' : 'esm',
+            format: 'esm', // isServer ? 'cjs' : 
           },
           external: EXTERNALS,
         },
@@ -50,7 +50,6 @@ async function bundle(root: string, config: SiteConfig) {
 
     const publicDir = join(root, 'public');
     if (fs.pathExistsSync(publicDir)) {
-      console.log(233);
       await fs.copy(publicDir, join(root, CLIENT_OUTPUT));
     }
 

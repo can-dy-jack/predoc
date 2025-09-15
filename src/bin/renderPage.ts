@@ -6,14 +6,14 @@ import { RenderResult } from '../server/ssr';
 import { buildIslands } from './buildIsland';
 import { normalizeVendorFilename } from '../utils';
 import { EXTERNALS } from './constant';
-import { HelmetData } from 'react-helmet-async';
 
 export async function renderPage(
-  render: (url: string, helmetContext: object) => RenderResult,
+  render: (url: string) => RenderResult,
   routes: RouteObject[],
   root: string,
   clientBundle: RollupOutput
 ) {
+  
   const clientChunk = clientBundle.output.find(
     (chunk) => chunk.type === 'chunk' && chunk.isEntry
   );
@@ -27,12 +27,8 @@ export async function renderPage(
     ].map(async (route) => {
       const routePath = route.path;
 
-      const helmetContext = {
-        context: {}
-      } as HelmetData;
-      const { appHtml, islandToPathMap, islandProps = [] } = await render(routePath, helmetContext.context);
+      const { appHtml, islandToPathMap, islandProps = [] } = await render(routePath);
 
-      const { helmet } = helmetContext.context;
       const styleAssets = clientBundle.output.filter(
         (chunk) => chunk.type === 'asset' && chunk.fileName.endsWith('.css')
       );
@@ -45,10 +41,7 @@ export async function renderPage(
           <head>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width,initial-scale=1">
-            ${helmet?.title?.toString() || ''}
-            ${helmet?.meta?.toString() || ''}
-            ${helmet?.link?.toString() || ''}
-            ${helmet?.style?.toString() || ''}
+            <title>Predoc</title>
             <meta name="description" content="xxx">
             ${styleAssets
             .map((item) => `<link rel="stylesheet" href="/${item.fileName}">`)
