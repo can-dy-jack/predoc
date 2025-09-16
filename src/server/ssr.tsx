@@ -16,11 +16,11 @@ export async function render(pagePath: string) {
   clearIslandData();
 
   const appHtml = renderToString(
-      <PageDataContext.Provider value={pageData}>
-        <StaticRouter location={pagePath} >
-          <App />
-        </StaticRouter>
-      </PageDataContext.Provider>
+    <PageDataContext.Provider value={pageData}>
+      <StaticRouter location={pagePath} >
+        <App />
+      </StaticRouter>
+    </PageDataContext.Provider>
   );
 
   const { islandProps, islandToPathMap } = data;

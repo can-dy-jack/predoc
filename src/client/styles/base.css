@@ -7,6 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--bg);
   color: var(--color);
-  line-height: 1.5;
-  font-size: 14px;
+  line-height: var(----predoc-line-height);
+  font-size: var(--predoc-font-size);
 }

@@ -1,9 +1,46 @@
 :root {
   --color: #24292e;
   --bg: #fff;
-  --primary: #0b7dff;
-  --secondary: #4639ff;
+
+  --bg-opacity: 0.2;
+  --primary-color: 11, 125, 255;
+  --secondary-color: 70, 57, 255;
+  --predoc-err-color: 255, 77, 79;
+  --predoc-success-color: 82, 196, 26;
+  --predoc-warning-color: 250, 173, 20;
+  --predoc-info-color: 24, 144, 255;
+
+  --primary: rgb(var(--primary-color));
+  --primary-bg: rgba(var(--primary-color), var(--bg-opacity));
+
+  --secondary: rgb(var(--secondary-color));
+  --secondary-bg: rgb(var(--secondary-color), var(--bg-opacity));
+
+  --predoc-err: rgb(var(--predoc-err-color));
+  --predoc-err-bg: rgb(var(--predoc-err-color), var(--bg-opacity));
+
+  --predoc-success: rgb(var(--predoc-success-color));
+  --predoc-success-bg: rgb(var(--predoc-success-color), var(--bg-opacity));
+
+  --predoc-warning: rgb(var(--predoc-warning-color));
+  --predoc-warning-bg: rgb(var(--predoc-warning-color), var(--bg-opacity));
+
+  --predoc-info: rgb(var(--predoc-info-color));
+  --predoc-info-bg: rgb(var(--predoc-info-color), var(--bg-opacity));
+
   --predoc-border-light: #ddd;
+  --predoc-border-radius: 8px;
+  --predoc-line-height: 1.5;
+  --predoc-font-size: 14px;
+  --predoc-nav-bg: rgba(255, 255, 255, 0.1);
+  --predoc-padding: 16px;
+  --predoc-margin: 16px;
 }
 
+html.dark {
+  --color: #fafafa;
+  --bg: #131313;
 
+  --predoc-border-light: #333;
+  --predoc-nav-bg: rgba(0, 0, 0, 0.1);
+}

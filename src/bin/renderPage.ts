@@ -46,6 +46,7 @@ export async function renderPage(
             ${styleAssets
             .map((item) => `<link rel="stylesheet" href="/${item.fileName}">`)
             .join('\n')}
+            <link rel="icon" href="./ico.png">
           </head>
           <body>
           <script type="importmap">

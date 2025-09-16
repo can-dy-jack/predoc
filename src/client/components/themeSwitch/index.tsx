@@ -1,7 +1,7 @@
-import styles from './index.module.scss';
-// 逻辑部分待补充
 import { toggle } from './toggle';
 import { ReactNode } from 'react';
+
+import styles from './index.module.scss';
 
 interface SwitchProps {
   onClick?: () => void;
@@ -11,9 +11,10 @@ interface SwitchProps {
 }
 
 export function Switch(props: SwitchProps) {
+  //  ${props.className}
   return (
     <button
-      className={`${styles.switch} ${props.className}`}
+      className={`${styles.switch}`}
       id={props.id ?? ''}
       type="button"
       role="switch"

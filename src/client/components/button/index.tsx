@@ -1,39 +1,34 @@
-import React from 'react';
-import { Link } from '../link';
-import styles from './index.module.scss';
+import { ReactNode } from 'react';
+
+import './index.scss';
+
+type ButtonType = 'default' | 'dashed' | 'text' | 'link';
+type ButtonTheme = 'default' | 'primary' | 'danger' | 'success' | 'warning' | 'info';
 
 interface ButtonProps {
-  type?: string;
-  size?: 'medium' | 'big';
-  theme?: 'brand' | 'alt';
-  text: string;
-  href?: string;
-  external?: boolean;
-  className?: string;
+  type?: ButtonType;
+  theme?: ButtonTheme;
+  size?: 'normal' | 'small' | 'large' | 'mini';
+  children?: ReactNode;
 }
 
 export function Button(props: ButtonProps) {
   const {
-    theme = 'brand',
-    size = 'big',
-    href = '/',
-    external = false,
-    className = ''
+    type = 'default',
+    theme = 'primary',
+    size = 'normal',
+    children,
   } = props;
-  let type: string | typeof Link | null = null;
 
-  if (props.type === 'button') {
-    type = 'button';
-  } else if (props.type === 'a') {
-    type = external ? 'a' : Link;
-  }
-
-  return React.createElement(
-    type ?? 'a',
-    {
-      className: `${styles.button} ${styles[theme]} ${styles[size]} ${className}`,
-      href
-    },
-    props.text
+  return (
+    <button className={`predoc-button ${
+      type == 'default' ? '' : ('predoc-button-type-' + type)
+      } ${
+        theme == 'default' ? '' : ('predoc-button-theme-' + theme)
+        } ${
+          size == 'normal' ? '' : ('predoc-button-size-' + size)
+          }`}>
+      <span>{ children }</span>
+    </button>
   );
 }

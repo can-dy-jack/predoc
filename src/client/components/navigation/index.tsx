@@ -17,9 +17,10 @@ export function MenuItem({ item }: { item: NavItemWithLink }) {
 export function Navigation() {
   const data = usePageData();
   const nav = data?.siteData?.siteData?.themeConfig?.nav || [];
+  const title = data?.siteData?.siteData?.title;
 
   return (
-    <header fixed="~" pos="t-0 l-0" w="full">
+    <header fixed="~" pos="t-0 l-0" w="full" className={styles.header}>
       <div
         flex="~"
         items="center"
@@ -29,10 +30,12 @@ export function Navigation() {
         <div>
           <a
             href="/"
-            hover="opacity-60"
-            className="w-full h-full text-1rem font-semibold flex items-center"
+            className={styles.link}
+            flex="~"
+            items="center"
           >
-            predoc
+            <img src="/ico.png" w="6" h="6" />
+            <span className="ml-1">{ title }</span>
           </a>
         </div>
         <div flex="~">

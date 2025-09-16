@@ -8,10 +8,9 @@
   border: 1px solid #eee;
   background-color: #ddd;
   transition: border-color 0.25s, background-color 0.25s;
-}
-
-.switch:hover {
-  border-color: gray;
+  & :hover {
+    border-color: gray;
+  }
 }
 
 .check {
@@ -26,10 +25,10 @@
   transition: background-color 0.25s, transform 0.25s;
 }
 
-:global(.dark) .check {
-  background-color: #666;
-  transform: translateX(18px);
-}
+// :global(.dark) .check {
+//   background-color: #666;
+//   transform: translateX(18px);
+// }
 
 .icon {
   position: relative;
@@ -38,15 +37,14 @@
   height: 18px;
   border-radius: 50%;
   overflow: hidden;
-}
-
-.icon > div {
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 12px;
-  height: 12px;
-  fill: #555;
+  div {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 12px;
+    height: 12px;
+    fill: #555;
+  }
 }
 
 .dark .icon svg {
@@ -62,10 +60,10 @@
   opacity: 0;
 }
 
-:global(.dark) .sun {
-  opacity: 0;
-}
+// :global(.dark) .sun {
+//   opacity: 0;
+// }
 
-:global(.dark) .moon {
-  opacity: 1;
-}
+// :global(.dark) .moon {
+//   opacity: 1;
+// }

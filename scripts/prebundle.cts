@@ -32,7 +32,7 @@ async function preBundle(deps: PreBundleItem[]) {
     outdir: PRE_BUNDLE_DIR,
     bundle: true,
     minify: env === 'production',
-    splitting: true,
+    // splitting: true,
     format: 'esm',
     define: {
       'process.env.NODE_ENV': JSON.stringify(env || 'production')

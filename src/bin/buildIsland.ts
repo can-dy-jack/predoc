@@ -31,7 +31,7 @@ export async function buildIslands(
       rollupOptions: {
         input: injectId,
         external: EXTERNALS
-      }
+      },
     },
     plugins: [
       // 重点插件，用来加载我们拼接的 Islands 注册模块的代码
@@ -54,13 +54,13 @@ export async function buildIslands(
           }
         },
         // 对于 Islands Bundle，我们只需要 JS 即可，其它资源文件可以删除
-        // generateBundle(_, bundle) {
-          // for (const name in bundle) {
-          //   if (bundle[name].type === 'asset') {
-          //     delete bundle[name];
-          //   }
-          // }
-        // }
+        generateBundle(_, bundle) {
+          for (const name in bundle) {
+            if (bundle[name].type === 'asset') {
+              delete bundle[name];
+            }
+          }
+        }
       }
     ]
   });
