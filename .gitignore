@@ -24,3 +24,5 @@ vendors
 
 build/
 .predoc/
+.temp/
+
