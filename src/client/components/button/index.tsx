@@ -10,6 +10,7 @@ interface ButtonProps {
   theme?: ButtonTheme;
   size?: 'normal' | 'small' | 'large' | 'mini';
   children?: ReactNode;
+  onClick?: () => void;
 }
 
 export function Button(props: ButtonProps) {
@@ -18,16 +19,20 @@ export function Button(props: ButtonProps) {
     theme = 'primary',
     size = 'normal',
     children,
+    onClick
   } = props;
 
   return (
-    <button className={`predoc-button ${
+    <button 
+      className={`predoc-button ${
       type == 'default' ? '' : ('predoc-button-type-' + type)
       } ${
         theme == 'default' ? '' : ('predoc-button-theme-' + theme)
         } ${
           size == 'normal' ? '' : ('predoc-button-size-' + size)
-          }`}>
+          }`}
+      onClick={onClick}
+    >
       <span>{ children }</span>
     </button>
   );

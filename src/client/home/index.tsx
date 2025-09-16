@@ -9,13 +9,6 @@ export function HomeLayout() {
 
   return (
     <div>
-      <div>
-        <Button>default - default - default</Button>
-        <Button>dashed - default - default</Button>
-        <Button>text - default - default</Button>
-        <Button>link - default - default</Button>
-      </div>
-
       <HomeHero hero={frontmatter.hero} />
       <HomeFeature features={frontmatter.features} />
     </div>

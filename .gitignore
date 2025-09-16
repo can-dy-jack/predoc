@@ -26,3 +26,6 @@ build/
 .predoc/
 .temp/
 
+
+*storybook.log
+storybook-static
