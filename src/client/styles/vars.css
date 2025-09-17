@@ -4,6 +4,8 @@
 
   --bg-opacity: 0.2;
   --primary-color: 11, 125, 255;
+  --primary-color-light: 45, 139, 245;
+  --primary-color-dark: 11, 95, 191;
   --secondary-color: 70, 57, 255;
   --predoc-err-color: 255, 77, 79;
   --predoc-success-color: 82, 196, 26;
@@ -11,6 +13,8 @@
   --predoc-info-color: 24, 144, 255;
 
   --primary: rgb(var(--primary-color));
+  --primary-light: rgb(var(--primary-color-light));
+  --primary-dark: rgb(var(--primary-color-dark));
   --primary-bg: rgba(var(--primary-color), var(--bg-opacity));
 
   --secondary: rgb(var(--secondary-color));
@@ -29,12 +33,36 @@
   --predoc-info-bg: rgb(var(--predoc-info-color), var(--bg-opacity));
 
   --predoc-border-light: #ddd;
-  --predoc-border-radius: 8px;
   --predoc-line-height: 1.5;
-  --predoc-font-size: 14px;
   --predoc-nav-bg: rgba(255, 255, 255, 0.1);
+
   --predoc-padding: 16px;
+  --predoc-padding-mini: 4px;
+  --predoc-padding-small: 8px;
+  --predoc-padding-large: 24px;
   --predoc-margin: 16px;
+  --predoc-margin-mini: 4px;
+  --predoc-margin-small: 8px;
+  --predoc-margin-large: 24px;
+  --predoc-font-size: 14px;
+  --predoc-font-size-mini: 10px;
+  --predoc-font-size-small: 12px;
+  --predoc-font-size-large: 16px;
+  --predoc-border-radius: 8px;
+  --predoc-border-radius-mini: 2px;
+  --predoc-border-radius-small: 4px;
+  --predoc-border-radius-large: 12px;
+
+  --predoc-gray-1: #f9fafb;
+  --predoc-gray-2: #f3f4f6;
+  --predoc-gray-3: #e5e7eb;
+  --predoc-gray-4: #d1d5db;
+  --predoc-gray-5: #9ca3af;
+  --predoc-gray-6: #6b7280;
+  --predoc-gray-7: #4b5563;
+  --predoc-gray-8: #1f2937;
+  --predoc-gray-9: #111827;
+  --predoc-gray-10: #030712;
 }
 
 html.dark {
