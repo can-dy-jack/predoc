@@ -50,6 +50,7 @@ export async function renderPage(
             ${helmet?.link?.toString() || ''}
             ${helmet?.style?.toString() || ''}
             <meta name="description" content="xxx">
+            <link rel="icon" href="/ico.png" type="image/png" />
             ${styleAssets
             .map((item) => `<link rel="stylesheet" href="/${item.fileName}">`)
             .join('\n')}

@@ -9,4 +9,5 @@ body {
   color: var(--color);
   line-height: var(----predoc-line-height);
   font-size: var(--predoc-font-size);
+  color-scheme: light dark;
 }

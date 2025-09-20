@@ -26,6 +26,7 @@ async function bundle(root: string, config: SiteConfig) {
       ssr: {
         noExternal: ['react-router-dom', 'lodash-es'],
       },
+      publicDir: 'public',
       build: {
         ssr: isServer,
         outDir: isServer ? join(root, '.predoc') : join(root, CLIENT_OUTPUT),

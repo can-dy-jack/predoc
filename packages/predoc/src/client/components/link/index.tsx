@@ -1,17 +1,16 @@
 import React from 'react';
-import styles from './index.module.scss';
-
-const EXTERNAL_URL_RE = /^https?/;
+import './index.scss';
 
 export interface LinkProps {
   href?: string;
+  isExternal?: boolean;
+  isMenu?: boolean;
   children?: React.ReactNode;
   className?: string;
 }
 
 export function Link(props: LinkProps) {
-  const { href = '/', children, className = '' } = props;
-  const isExternal = EXTERNAL_URL_RE.test(href);
+  const { href = '/', children, isExternal = false, isMenu = false } = props;
   const target = isExternal ? '_blank' : '';
   const rel = isExternal ? 'noopener noreferrer' : undefined;
   return (
@@ -19,7 +18,7 @@ export function Link(props: LinkProps) {
       href={href}
       target={target}
       rel={rel}
-      className={`${styles.link} ${className}`}
+      className={`predoc-link${isMenu ? ' predoc-link-menu' : ''}`}
     >
       {children}
     </a>

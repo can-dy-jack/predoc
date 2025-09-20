@@ -21,7 +21,8 @@
   - create-predoc
   - 说明文档
 - monorepo
-  - workspace:
+  - workspace
+  - lerna
 
 ## run
 

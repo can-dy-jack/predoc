@@ -9,6 +9,7 @@ interface ButtonProps {
   type?: ButtonType;
   theme?: ButtonTheme;
   size?: 'normal' | 'small' | 'large' | 'mini';
+  href?: string;
   children?: ReactNode;
   onClick?: (e: MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
@@ -18,6 +19,7 @@ export function Button(props: ButtonProps): ReactElement {
     type = 'default',
     theme = 'primary',
     size = 'normal',
+    href,
     children,
     onClick
   } = props;
@@ -73,7 +75,13 @@ export function Button(props: ButtonProps): ReactElement {
       onClick={btnOnclick}
       ref={btnRef}
     >
-      <span>{ children }</span>
+      {
+        type === 'link' ? (
+          <a href={href}>{ children }</a>
+        ) : (
+          <span>{ children }</span>
+        )
+      }
     </button>
   );
 }

@@ -1,6 +1,8 @@
 :root {
-  --color: #24292e;
-  --bg: #fff;
+  --color-value: 36, 41, 46;
+  --color: rgb(var(--color-value));
+  --bg-color: 255, 255, 255;
+  --bg: rgb(var(--bg-color));
 
   --bg-opacity: 0.2;
   --primary-color: 11, 125, 255;
@@ -34,7 +36,6 @@
 
   --predoc-border-light: #ddd;
   --predoc-line-height: 1.5;
-  --predoc-nav-bg: rgba(255, 255, 255, 0.1);
 
   --predoc-padding: 16px;
   --predoc-padding-mini: 4px;
@@ -66,10 +67,9 @@
 }
 
 html.dark {
-  --color: #fafafa;
-  --bg: #131313;
+  --color-value: 250, 250, 250;
+  --bg-color: 19, 19, 19;
 
   --predoc-border-light: #333;
-  --predoc-nav-bg: rgba(0, 0, 0, 0.1);
 }
 

@@ -27,11 +27,10 @@ export function HomeHero(props: { hero: Hero }) {
             {hero.actions.map((action) => (
               <div key={action.link} p="1">
                 <Button
-                  type="a"
-                  text={action.text}
-                  href={action.link}
-                  theme={action.theme}
-                />
+                  theme={'primary'}
+                >
+                  {action.text}
+                </Button>
               </div>
             ))}
           </div>

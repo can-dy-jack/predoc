@@ -10,7 +10,7 @@ export default defineConfig({
     ],
     codeLine: {
       theme: {
-        light: 'everforest-light',
+        light: 'ayu-dark',
         dark: 'github-dark'
       }
     },

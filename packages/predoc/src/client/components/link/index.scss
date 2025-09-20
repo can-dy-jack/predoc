@@ -1,0 +1,14 @@
+.predoc-link {
+  color: var(--primary);
+  text-decoration: none;
+  transition: all 250ms linear;
+  &.predoc-link-menu {
+    color: var(--color);
+  }
+  &:hover {
+    color: var(--primary-light);
+  }
+  &:active {
+    color: var(--primary-dark);
+  }
+}
