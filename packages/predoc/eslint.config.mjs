@@ -1,6 +1,5 @@
 // import config from "eslint-config-xo";
 import { defineConfig } from 'eslint/config';
-// import globals from 'globals';
 import js from '@eslint/js';
 import react from 'eslint-plugin-react';
 import typescriptEslint from '@typescript-eslint/eslint-plugin';
@@ -9,7 +8,6 @@ import hooks from 'eslint-plugin-react-hooks';
 import prettier from 'eslint-plugin-prettier';
 
 export default defineConfig([
-  // config,
   {
     files: ['src/**/*.js', 'src/**/*.jsx', 'src/**/*.ts', 'src/**/*.tsx'],
     plugins: {

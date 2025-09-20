@@ -1,4 +1,4 @@
-import { defineConfig } from '../dist';
+import { defineConfig } from 'predoc';
 
 export default defineConfig({
   title: 'My Site233',

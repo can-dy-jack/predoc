@@ -1,0 +1,10 @@
+{
+  "name": "@trial/test_docs",
+  "scripts": {
+    "dev": "predoc dev ."
+  },
+  "type": "module",
+  "dependencies": {
+    "predoc": "0.1.0"
+  }
+}

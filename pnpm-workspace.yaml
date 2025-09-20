@@ -1,0 +1,4 @@
+packages:
+  - 'packages/*'
+  - 'trial/*'
+linkWorkspacePackages: true

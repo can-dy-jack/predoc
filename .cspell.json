@@ -3,5 +3,6 @@
     "predoc",
     "unocss",
     "autodocs",
+    "prebundle",
   ]
 }
