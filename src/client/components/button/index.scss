@@ -1,0 +1,299 @@
+.predoc-button {
+  outline: none;
+  cursor: pointer;
+  box-shadow: 0 1px 1px var(--predoc-border-light);
+  position: relative;
+  overflow: hidden;
+
+  border-radius: var(--predoc-border-radius);
+  --predoc-btn-p: 8px 12px;
+  font-size: var(--predoc-font-size);
+
+  &.predoc-button-size-small {
+    --predoc-btn-p: 4px 8px;
+    border-radius: var(--predoc-border-radius-small);
+    font-size: var(--predoc-font-size-small);
+  }
+
+  &.predoc-button-size-large {
+    --predoc-btn-p: 12px 16px;
+    border-radius: var(--predoc-border-radius-large);
+    font-size: var(--predoc-font-size-large);
+  }
+
+  &.predoc-button-size-mini {
+    --predoc-btn-p: 2px 4px;
+    border-radius: var(--predoc-border-radius-mini);
+    font-size: var(--predoc-font-size-mini);
+  }
+
+  background-color: var(--bg);
+  padding: var(--predoc-btn-p);
+  border: 1px solid var(--predoc-border-light);
+  transition: all 250ms ease-in-out;
+
+  &:hover {
+    border: 1px solid var(--primary);
+    color: var(--primary);
+  }
+
+  &.predoc-button-theme-primary,
+  &.predoc-button-theme-dark,
+  &.predoc-button-theme-danger,
+  &.predoc-button-theme-success,
+  &.predoc-button-theme-warning,
+  &.predoc-button-theme-info {
+    color: var(--bg);
+    border: none;
+
+    &:active {
+      color: var(--bg);
+    }
+
+    .btn-ripple {
+      background: var(--bg);
+    }
+  }
+
+  &.predoc-button-theme-primary {
+    background-color: var(--primary);
+
+    &:hover {
+      color: var(--bg);
+      background-color: var(--primary-light);
+    }
+  }
+
+  &.predoc-button-theme-dark {
+    background-color: var(--predoc-gray-8);
+
+    &:hover {
+      color: var(--bg);
+      background-color: var(--predoc-gray-7);
+    }
+  }
+
+  &.predoc-button-theme-danger {
+    background-color: rgba(var(--predoc-err-color), 1);
+
+    &:hover {
+      color: var(--bg);
+      background-color: rgba(var(--predoc-err-color), 0.8);
+    }
+  }
+
+  &.predoc-button-theme-success {
+    background-color: rgba(var(--predoc-success-color), 1);
+
+    &:hover {
+      color: var(--bg);
+      background-color: rgba(var(--predoc-success-color), 0.8);
+    }
+  }
+
+  &.predoc-button-theme-warning {
+    background-color: rgba(var(--predoc-warning-color), 1);
+
+    &:hover {
+      color: var(--bg);
+      background-color: rgba(var(--predoc-warning-color), 0.8);
+    }
+  }
+
+  &.predoc-button-theme-info {
+    background-color: rgba(var(--predoc-info-color), 1);
+
+    &:hover {
+      color: var(--bg);
+      background-color: rgba(var(--predoc-info-color), 0.8);
+    }
+  }
+
+  &.predoc-button-type-dashed {
+    border: 1px dashed var(--predoc-border-light);
+    background-color: var(--bg);
+    color: var(--color);
+    --scope-color: var(--primary);
+    --scope-bg: var(--primary-bg);
+
+    &.predoc-button-theme-dark {
+      --scope-color: var(--predoc-gray-8);
+      --scope-bg: var(--predoc-gray-4);
+    }
+
+    &.predoc-button-theme-danger {
+      --scope-color: var(--predoc-err);
+      --scope-bg: var(--predoc-err-bg);
+    }
+
+    &.predoc-button-theme-success {
+      --scope-color: var(--predoc-success);
+      --scope-bg: var(--predoc-success-bg);
+    }
+
+    &.predoc-button-theme-warning {
+      --scope-color: var(--predoc-warning);
+      --scope-bg: var(--predoc-warning-bg);
+    }
+
+    &.predoc-button-theme-info {
+      --scope-color: var(--predoc-info);
+      --scope-bg: var(--predoc-info-bg);
+    }
+
+    &:hover {
+      background-color: var(--bg);
+      color: var(--scope-color);
+      border-color: var(--scope-color);
+    }
+
+    .btn-ripple {
+      background: var(--scope-bg);
+    }
+  }
+
+  &.predoc-button-type-fill {
+    border: none;
+    box-shadow: none;
+    --scope-color: 50, 50, 50;
+
+    &.predoc-button-theme-primary {
+      --scope-color: var(--primary-color);
+    }
+
+    &.predoc-button-theme-danger {
+      --scope-color: var(--predoc-err-color);
+    }
+
+    &.predoc-button-theme-success {
+      --scope-color: var(--predoc-success-color);
+    }
+
+    &.predoc-button-theme-warning {
+      --scope-color: var(--predoc-warning-color);
+    }
+
+    &.predoc-button-theme-info {
+      --scope-color: var(--predoc-info-color);
+    }
+
+    color: rgba(var(--scope-color), 1);
+    background-color: rgba(var(--scope-color), 0.1);
+
+    .btn-ripple {
+      background-color: rgba(var(--scope-color), 0.2);
+    }
+
+    &:hover {
+      color: rgba(var(--scope-color), 1);
+      background-color: rgba(var(--scope-color), 0.2);
+    }
+
+    &:active {
+      color: rgba(var(--scope-color), 1);
+      background-color: rgba(var(--scope-color), 0.5);
+    }
+  }
+
+  &.predoc-button-type-text {
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+    --scope-color: 50, 50, 50;
+
+    &.predoc-button-theme-primary {
+      --scope-color: var(--primary-color);
+    }
+
+    &.predoc-button-theme-dark {
+      --scope-color: 50, 50, 50;
+    }
+
+    &.predoc-button-theme-danger {
+      --scope-color: var(--predoc-err-color);
+    }
+
+    &.predoc-button-theme-success {
+      --scope-color: var(--predoc-success-color);
+    }
+
+    &.predoc-button-theme-warning {
+      --scope-color: var(--predoc-warning-color);
+    }
+
+    &.predoc-button-theme-info {
+      --scope-color: var(--predoc-info-color);
+    }
+
+    color: rgba(var(--scope-color), 1);
+
+    &:hover {
+      background-color: rgba(var(--scope-color), 0.2);
+      color: rgba(var(--scope-color), 1);
+    }
+
+    .btn-ripple {
+      background: rgba(var(--scope-color), 0.2);
+    }
+  }
+
+  .btn-ripple {
+    position: absolute;
+    border-radius: 50% 50%;
+    background: var(--primary-bg);
+    transform: scale(0);
+    opacity: 1;
+    animation: rippleDrop .5s linear;
+  }
+
+  &.predoc-button-type-link {
+    --scope-color: 50, 50, 50;
+
+    &.predoc-button-theme-primary {
+      --scope-color: var(--primary-color);
+    }
+
+    &.predoc-button-theme-dark {
+      --scope-color: 50, 50, 50;
+    }
+
+    &.predoc-button-theme-danger {
+      --scope-color: var(--predoc-err-color);
+    }
+
+    &.predoc-button-theme-success {
+      --scope-color: var(--predoc-success-color);
+    }
+
+    &.predoc-button-theme-warning {
+      --scope-color: var(--predoc-warning-color);
+    }
+
+    &.predoc-button-theme-info {
+      --scope-color: var(--predoc-info-color);
+    }
+
+    border: none;
+    box-shadow: none;
+    color: rgba(var(--scope-color), 0.9);
+    background-color: transparent;
+
+    &:hover {
+      color: rgba(var(--scope-color), 0.7);
+      background-color: transparent;
+    }
+
+    &:active {
+      color: rgba(var(--scope-color), 1);
+    }
+  }
+}
+
+
+@keyframes rippleDrop {
+  100% {
+    transform: scale(2);
+    -webkit-transform: scale(2);
+    opacity: 0;
+  }
+}
