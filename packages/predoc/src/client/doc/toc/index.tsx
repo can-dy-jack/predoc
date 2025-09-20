@@ -1,7 +1,7 @@
 import { Header, PropsWithIsland } from '../../type';
 import { useRef, HTMLDivElement, useEffect } from 'react';
 import { bindingAsideScroll, scrollToTarget } from './toc';
-
+import React from 'react';
 // import { useHeaders } from '../../logic/useHeaders';
 
 interface AsideProps {

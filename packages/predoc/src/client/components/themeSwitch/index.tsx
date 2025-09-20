@@ -1,7 +1,7 @@
 import styles from './index.module.scss';
 // 逻辑部分待补充
 import { toggle } from './toggle';
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 
 interface SwitchProps {
   onClick?: () => void;

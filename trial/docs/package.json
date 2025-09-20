@@ -1,5 +1,5 @@
 {
-  "name": "@trial/test_docs",
+  "name": "@trial/docs",
   "scripts": {
     "dev": "predoc dev ."
   },

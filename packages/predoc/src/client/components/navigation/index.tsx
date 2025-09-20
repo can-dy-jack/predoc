@@ -3,6 +3,7 @@ import { usePageData } from '../../hooks';
 
 import styles from './index.module.scss';
 import { SwitchAppearance } from '../themeSwitch';
+import React from 'react';
 
 export function MenuItem({ item }: { item: NavItemWithLink }) {
   return (

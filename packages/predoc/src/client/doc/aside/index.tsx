@@ -1,6 +1,8 @@
 import styles from './index.module.scss';
 import { Link } from '../../components/link';
 import { SidebarGroup, SidebarItem } from 'config/type';
+import React from 'react';
+
 interface SidebarProps {
   sidebarData: SidebarGroup[];
   pathname: string;

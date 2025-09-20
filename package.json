@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "pnpm --filter predoc run start",
     "build": "pnpm --filter predoc run build",
-    "test:docs": "pnpm --filter @trial/test_docs run dev"
+    "test:docs": "pnpm --filter @trial/docs run dev",
+    "test:components": "pnpm --filter @trial/components run storybook"
   }
 }

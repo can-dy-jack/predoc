@@ -5,7 +5,6 @@ import { pluginRoute } from './route';
 // @ts-expect-error I known what I'm doing
 import pluginReact from '@vitejs/plugin-react';
 import { createPluginMdx } from './mdx';
-import { pluginViteUnocss } from './unocss';
 import { join } from 'path';
 import { ROOT } from '../constant';
 import {babelPluginIsland} from './babel-plugin/island';
@@ -20,7 +19,6 @@ export function createVitePlugin(
     EnvironmentPlugin({
       NODE_ENV: isSSR ? 'development' : 'production',
     }),
-    pluginViteUnocss(),
     pluginHTML(),
     pluginReact({
       jsxRuntime: 'automatic',

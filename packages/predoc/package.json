@@ -85,7 +85,6 @@
     "sirv": "^3.0.2",
     "tsx": "^4.20.5",
     "unified": "^11.0.5",
-    "unocss": "^66.5.1",
     "vite": "^7.1.4",
     "vite-plugin-environment": "^1.1.3"
   }

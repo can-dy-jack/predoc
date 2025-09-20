@@ -4,6 +4,7 @@ import { usePageData } from '../hooks';
 import { Routers } from '@server';
 import { DocFooter } from './footer';
 import { Toc } from './toc';
+import React from 'react';
 
 export function DocLayout() {
   const { siteData, toc } = usePageData();

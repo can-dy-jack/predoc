@@ -1,4 +1,4 @@
-import { ReactNode, MouseEvent, HTMLButtonElement, useRef } from 'react';
+import { ReactNode, MouseEvent, HTMLButtonElement, useRef, ReactElement } from 'react';
 
 import './index.scss';
 
@@ -13,7 +13,7 @@ interface ButtonProps {
   onClick?: (e: MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
-export function Button(props: ButtonProps) {
+export function Button(props: ButtonProps): ReactElement {
   const {
     type = 'default',
     theme = 'primary',

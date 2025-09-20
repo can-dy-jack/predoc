@@ -3,6 +3,7 @@ import { PageData } from './type';
 import { Layout } from './Layout';
 import { routes } from 'predoc:route';
 import siteData from 'predoc:site-data';
+import React from 'react';
 
 export function App() {
   return <Layout />;

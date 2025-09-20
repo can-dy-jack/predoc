@@ -1,4 +1,5 @@
 import { Feature } from 'client/type';
+import React from 'react';
 
 export function HomeFeature(props: { features: Feature[] }) {
   return (

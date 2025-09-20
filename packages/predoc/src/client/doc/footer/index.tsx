@@ -1,5 +1,6 @@
 import styles from './index.module.scss';
 import { usePrevNextPage } from '../../hooks/usePrevNextPage';
+import React from 'react';
 
 export function DocFooter() {
   const { prevPage, nextPage } = usePrevNextPage();

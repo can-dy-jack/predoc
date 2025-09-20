@@ -1,4 +1,3 @@
-import 'uno.css';
 import './styles/vars.css';
 import './styles/base.css';
 import './styles/themes.css';
@@ -9,6 +8,7 @@ import { HomeLayout } from './home';
 import { DocLayout } from './doc';
 import { Helmet } from 'react-helmet-async';
 import { NotFoundLayout } from './notFound';
+import React from 'react';
 
 export function Layout() {
   const pageData = usePageData();
