@@ -1,6 +1,7 @@
 import './styles/vars.css';
 import './styles/base.css';
 import './styles/themes.css';
+import './styles/markdown.css';
 
 import { usePageData } from './hooks';
 import { Navigation } from './components';
