@@ -3,5 +3,6 @@
     "predoc",
     "autodocs",
     "prebundle",
+    "shiki",
   ]
 }
