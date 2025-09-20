@@ -7,6 +7,11 @@
     "dev": "pnpm --filter predoc run start",
     "build": "pnpm --filter predoc run build",
     "test:docs": "pnpm --filter @trial/docs run dev",
-    "test:components": "pnpm --filter @trial/components run storybook"
+    "test:components": "pnpm --filter @trial/components run storybook",
+    "version": "lerna version"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "lerna": "^8.2.4"
   }
 }
