@@ -1,0 +1,22 @@
+.code-block {
+  border-radius: var(--predoc-border-radius, 8px);
+  overflow: hidden;
+  border: 1px solid var(--code-block-lang-bg);
+  box-shadow: var(--code-block-shadow);
+  .lang {
+    display: block;
+    background-color: var(--code-block-lang-bg);
+    padding: var(--predoc-padding-small, 4px);
+    font-family: fira code, monospace, consolas, 'Courier New', Courier, sans-serif;
+    font-size: 0.8rem;
+  }
+  .shiki {
+    --r: var(--predoc-padding-small, 4px);
+    border-radius: 0 0 var(--r) var(--r);
+    margin-bottom: 0;
+  }
+}
+
+.admonition {
+  background-color: var(--predoc-info);
+}

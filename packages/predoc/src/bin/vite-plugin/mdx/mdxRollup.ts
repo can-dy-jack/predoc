@@ -8,6 +8,8 @@ import { rehypePluginCodeLine } from './rehype/codeLine';
 import rehypeShiki from '@shikijs/rehype';
 import { remarkPluginToc } from './remark/toc';
 import { SiteConfig } from 'config/type';
+import remarkAdmonitionPlugin from './remark/admonitions';
+import remarkDirective from 'remark-directive';
 
 export function pluginMdxRollup(config: SiteConfig) {
   const codeLineTheme = config.siteData.themeConfig.codeLine.theme;
@@ -25,7 +27,9 @@ export function pluginMdxRollup(config: SiteConfig) {
     pluginMdx({
       remarkPlugins: [
         remarkGfm, 
-        remarkFrontmatter, 
+        remarkFrontmatter,
+        remarkAdmonitionPlugin,
+        remarkDirective,
         remarkMDXFrontMatter,
         remarkPluginToc,
       ],

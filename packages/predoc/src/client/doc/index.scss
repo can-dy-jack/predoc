@@ -1,0 +1,29 @@
+.predoc-doc {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  background-color: var(--bg);
+  overflow: auto;
+
+  .predoc-doc-aside {
+    width: 250px;
+    border-right: 1px solid var(--predoc-border-light);
+  }
+
+  .predoc-doc-container {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    // padding: var(--predoc-doc-padding-large, 12px);
+    .predoc-doc-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+      .predoc-doc-render {
+        padding: 24px;
+      }
+    }
+  }
+}

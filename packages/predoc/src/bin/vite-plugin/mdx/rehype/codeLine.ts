@@ -28,7 +28,8 @@ export const rehypePluginCodeLine: Plugin<[], Root> = () => {
         // 修改原来的 pre 标签 -> div 标签
         node.tagName = 'div';
         node.properties = node.properties || {};
-        node.properties.className = codeClassName;
+        node.properties.className = codeClassName + ' code-block';
+        // TODO 复制按钮
 
         // 构造 div 标签的子元素
         node.children = [
