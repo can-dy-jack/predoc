@@ -287,6 +287,17 @@
       color: rgba(var(--scope-color), 1);
     }
   }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    &:hover {
+      color: inherit;
+    }
+    &:active {
+      color: inherit;
+    }
+  }
 }
 
 

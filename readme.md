@@ -8,9 +8,15 @@
 - helmet
   react-helmet-async 2.0.5
   └── ✕ unmet peer react@"^16.6.0 || ^17.0.0 || ^18.0.0": found 19.1.1
-- [ ]样式统一
-  - [x] css变量
-  - 主题支持：白色、黑暗（监听系统自动切换 or 手动设置跟随系统 - 都通过 .dark 的 class 实现）
+- pageData层级问题
+- markdown 解析 - 自定义 note 组件
+  - 扩展mdx
+    - mermaid
+    - code live
+    - 扩展语法
+    - 自定义标签
+- 全局搜索
+- 文章最近更新时间 / 发布时间
 - 打包问题
   - 打包有时候会失败，疑似build顺序问题。暂时在windows下出现该问题
 - 组件

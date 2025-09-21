@@ -1,0 +1,39 @@
+.predoc-home-feature {
+  padding: var(--predoc-padding-large);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  .feature-item {
+    grid-row: span 1;
+    grid-column: span 1;
+    .feature-box {
+      background-color: var(--predoc-gray-2);
+      border-radius: var(--predoc-border-radius-large);
+      box-sizing: border-box;
+      padding: var(--predoc-padding-large);
+      border: 1px solid var(--predoc-gray-4);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 0 2px 4px rgba(var(--color-value), 0.1);
+      }
+      .feature-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        .feature-icon {
+          font-size: 1.8em;
+        }
+      }
+      .feature-details {
+        margin-top: 8px;
+        font-size: 1em;
+        line-height: 1.75em;
+        color: var(--predoc-gray-7);
+        text-indent: 2em;
+      }
+    }
+  }
+}

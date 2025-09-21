@@ -1,28 +1,29 @@
 import { Feature } from 'client/type';
 import React from 'react';
 
+import './index.scss';
+
 export function HomeFeature(props: { features: Feature[] }) {
+  const { features = [] } = props;
+
   return (
-    <div className="max-w-1152px" m="auto" flex="~ wrap" justify="between">
-      {props.features.map((feature) => {
+    <div className="predoc-home-feature">
+      {features.map((feature, index) => {
         const { icon, title, details } = feature;
         return (
-          <div key={title} border="rounded-md" p="r-4 b-4" w="1/3">
+          <div key={index} className="feature-item">
             <article
-              bg="bg-soft"
-              border="~ bg-soft solid rounded-xl"
-              p="6"
-              h="full"
+              className="feature-box"
             >
-              <div
-                bg="gray-light-4 dark:bg-white"
-                border="rounded-md"
-                className="mb-5 w-12 h-12 text-3xl flex-center"
-              >
-                {icon}
+              <div className="feature-header">
+                <div
+                  className="feature-icon"
+                >
+                  {icon}
+                </div>
+                <h2 className="feature-title">{title}</h2>
               </div>
-              <h2 font="bold">{title}</h2>
-              <p text="sm text-2" font="medium" className="pt-2 leading-6">
+              <p className="feature-details">
                 {details}
               </p>
             </article>

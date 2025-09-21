@@ -76,7 +76,7 @@ export function Button(props: ButtonProps): ReactElement {
       ref={btnRef}
     >
       {
-        type === 'link' ? (
+        href ? (
           <a href={href}>{ children }</a>
         ) : (
           <span>{ children }</span>

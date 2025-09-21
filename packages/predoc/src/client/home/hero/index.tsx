@@ -1,34 +1,30 @@
-import styles from './index.module.scss';
 import { Button } from '../../components/button';
 import { Hero } from 'client/type';
 import React from 'react';
 
+import './index.scss';
+
 export function HomeHero(props: { hero: Hero }) {
   const { hero } = props;
   return (
-    <div m="auto" p="t-20 x-16 b-16">
-      <div flex="~" className="max-w-1152px" m="auto">
-        <div text="left" flex="~ col" className="max-w-592px">
-          <h1 font="bold" text="6xl" className="max-w-576px">
-            <span className={styles.clip}>{hero.name}</span>
+    <div className="predoc-hero">
+      <div className="predoc-hero-container">
+        <div className="predoc-hero-left">
+          <h1 className="predoc-hero-title">
+            <span>{hero.name}</span>
           </h1>
-          <p text="6xl" font="bold" className="max-w-576px">
+          <p className="predoc-hero-text">
             {hero.text}
           </p>
           <p
-            p="t-3"
-            text="2xl text-2"
-            font="medium"
-            className="whitespace-pre-wrap max-w-576px"
+            className="predoc-hero-tagline"
           >
             {hero.tagline}
           </p>
-          <div flex="~ wrap" justify="start" p="t-8">
+          <div className="predoc-hero-actions">
             {hero.actions.map((action) => (
-              <div key={action.link} p="1">
-                <Button
-                  theme={'primary'}
-                >
+              <div key={action.link}>
+                <Button type={action.type} href={action.link} theme={action.theme || 'default'}>
                   {action.text}
                 </Button>
               </div>
@@ -36,8 +32,8 @@ export function HomeHero(props: { hero: Hero }) {
           </div>
         </div>
         {hero.image && (
-          <div w="max-96" h="max-96" flex="center" m="auto">
-            <img src={hero.image.src} alt={hero.image.alt} />
+          <div className="predoc-hero-right">
+            <img src={hero.image.src || './ico.png'} alt={hero.image.alt || 'logo'} />
           </div>
         )}
       </div>

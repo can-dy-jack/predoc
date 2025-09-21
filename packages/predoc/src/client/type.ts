@@ -16,17 +16,18 @@ export interface Feature {
 }
 
 export interface Hero {
-  name: string;
-  text: string;
-  tagline: string;
+  name?: string;
+  text?: string;
+  tagline?: string;
   image?: {
-    src: string;
-    alt: string;
+    src?: string;
+    alt?: string;
   };
-  actions: {
-    text: string;
-    link: string;
-    theme: 'brand' | 'alt';
+  actions?: {
+    text?: string;
+    link?: string;
+    theme?: 'default' | 'primary' | 'dark';
+    type?: 'link' | 'fill';
   }[];
 }
 

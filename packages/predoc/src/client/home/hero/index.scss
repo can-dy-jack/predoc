@@ -1,0 +1,35 @@
+.predoc-hero {
+  padding: var(--predoc-padding-large);
+  background-color: var(--primary);
+  color: #fff;
+  .predoc-hero-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    .predoc-hero-left {
+      .predoc-hero-title {
+        color: #fff;
+        font-weight: bold;
+        font-size: 3.75rem;
+        margin: 10px 0;
+      }
+      .predoc-hero-text {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      .predoc-hero-tagline {
+        font-size: 1rem;
+        margin-top: 16px;
+        white-space: pre-wrap;
+      }
+      .predoc-hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin: 32px 0;
+      }
+    }
+  }
+}
