@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "author": "can-dy-jack",
+  "main": "./dist/index.mjs",
   "module": "./dist/index.mjs",
   "description": "A static site generator for Markdown",
   "files": [
