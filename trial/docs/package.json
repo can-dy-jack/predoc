@@ -1,10 +1,16 @@
 {
   "name": "@trial/docs",
   "scripts": {
-    "dev": "predoc dev ."
+    "dev": "predoc dev .",
+    "build": "predoc build .",
+    "preview": "predoc preview ."
   },
   "type": "module",
   "dependencies": {
-    "predoc": "0.1.0"
+    "lodash-es": "^4.17.21",
+    "predoc": "0.1.0",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^7.9.1"
   }
 }

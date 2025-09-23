@@ -6,10 +6,10 @@ import { RenderResult } from '../server/ssr';
 import { buildIslands } from './buildIsland';
 import { normalizeVendorFilename } from '../utils';
 import { EXTERNALS } from './constant';
-import { HelmetData } from 'react-helmet-async';
+import { generatePredocHTML } from '@predoc/html';
 
 export async function renderPage(
-  render: (url: string, helmetContext: object) => RenderResult,
+  render: (url: string) => RenderResult,
   routes: RouteObject[],
   root: string,
   clientBundle: RollupOutput
@@ -27,50 +27,42 @@ export async function renderPage(
     ].map(async (route) => {
       const routePath = route.path;
 
-      const helmetContext = {
-        context: {}
-      } as HelmetData;
-      const { appHtml, islandToPathMap, islandProps = [] } = await render(routePath, helmetContext.context);
+      const { appHtml, islandToPathMap, islandProps = [] } = await render(routePath);
 
-      const { helmet } = helmetContext.context;
       const styleAssets = clientBundle.output.filter(
         (chunk) => chunk.type === 'asset' && chunk.fileName.endsWith('.css')
       );
       const islandBundle = await buildIslands(root, islandToPathMap);
       const islandsCode = (islandBundle as RollupOutput).output[0].code;
 
-      const html = `
-        <!DOCTYPE html>
-        <html>
-          <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width,initial-scale=1">
-            ${helmet?.title?.toString() || ''}
-            ${helmet?.meta?.toString() || ''}
-            ${helmet?.link?.toString() || ''}
-            ${helmet?.style?.toString() || ''}
-            <meta name="description" content="xxx">
-            <link rel="icon" href="/ico.png" type="image/png" />
-            ${styleAssets
-            .map((item) => `<link rel="stylesheet" href="/${item.fileName}">`)
-            .join('\n')}
-          </head>
-          <body>
-          <script type="importmap">
-            {
-              "imports": {
-                ${EXTERNALS.map(
-                  (name) => `"${name}": "/${normalizeVendorFilename(name)}"`
-                ).join(',')}
-              }
-            }
-          </script>
-            <script type="module">${islandsCode}</script>
-            <div id="predoc-app">${appHtml}</div>
-            <script type="module" src="/${clientChunk?.fileName}"></script>
-            <script id="island-props">${JSON.stringify(islandProps)}</script>
-          </body>
-        </html>`.trim();
+      const html = generatePredocHTML(
+        'zh-CN',
+        undefined,
+        undefined,
+        `
+        ${styleAssets
+          .map((item) => `<link rel="stylesheet" href="/${item.fileName}">`)
+          .join('\n')}
+        `.trim(),
+        `
+  <script type="importmap">
+    {
+      "imports": {
+        ${EXTERNALS.map(
+          (name) => `"${name}": "/${normalizeVendorFilename(name)}"`
+        ).join(',')}
+      }
+    }
+  </script>
+        `.trim(),
+        `
+  <script type="module">${islandsCode}</script>
+  <div id="predoc-app">${appHtml}</div>
+  <script type="module" src="/${clientChunk?.fileName}"></script>
+  <script id="island-props">${JSON.stringify(islandProps)}</script>
+        `.trim(),
+      );
+      
       const fileName = routePath.endsWith('/')
         ? `${routePath}index.html`
         : `${routePath}.html`;

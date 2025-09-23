@@ -4,7 +4,6 @@ import { App, initPageData } from '../client/App';
 // import siteData from 'predoc:site-data';
 import { BrowserRouter } from 'react-router-dom';
 import { PageDataContext } from '../client';
-import { HelmetProvider } from 'react-helmet-async';
 
 declare global {
     interface Window {
@@ -26,13 +25,11 @@ async function render2Browser() {
     // 初始化 PageData
     const pageData = await initPageData(window.location.pathname);
     createRoot(root).render(
-      <HelmetProvider>
         <PageDataContext.Provider value={pageData}>
           <BrowserRouter>
             <App />
           </BrowserRouter>
         </PageDataContext.Provider>
-      </HelmetProvider>
     );
   } else {
     // 生产环境下的 Partial Hydration
