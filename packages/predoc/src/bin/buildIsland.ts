@@ -11,7 +11,7 @@ export async function buildIslands(
     ${Object.entries(islandPathToMap)
       .map(
         ([islandName, islandPath]) =>
-          `import { ${islandName} } from '${islandPath}'`
+          `import { ${islandName} } from '${islandPath}';`
       )
       .join('')}
     window.ISLANDS = { ${Object.keys(islandPathToMap).join(', ')} };

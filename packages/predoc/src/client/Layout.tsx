@@ -8,7 +8,6 @@ import { usePageData } from './hooks';
 import { Navigation } from './components';
 import { HomeLayout } from './home';
 import { DocLayout } from './doc';
-import { Helmet } from 'react-helmet-async';
 import { NotFoundLayout } from './notFound';
 import React from 'react';
 
@@ -28,9 +27,6 @@ export function Layout() {
   };
   return (
     <>
-      <Helmet>
-        <title>{title}</title>
-      </Helmet>
       <Navigation />
       <div>{getContent()}</div>
     </>

@@ -1,6 +1,6 @@
-import { readFileSync } from 'fs';
 import { Plugin } from 'vite';
-import { CLIENT_ENTRY_PATH, HTML_PATH } from '../constant';
+import { CLIENT_ENTRY_PATH } from '../constant';
+import { generatePredocHTML } from '@predoc/html';
 
 export function pluginHTML(): Plugin {
   return {
@@ -9,7 +9,8 @@ export function pluginHTML(): Plugin {
     configureServer(server) {
       return () => {
         server.middlewares.use(async (req, res, next) => {
-          let html = await readFileSync(HTML_PATH, 'utf-8');
+          // let html = await readFileSync(HTML_PATH, 'utf-8');
+          let html = generatePredocHTML();
 
           try {
             html = await server.transformIndexHtml(req.url, html, req.originalUrl);

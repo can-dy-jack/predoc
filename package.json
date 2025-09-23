@@ -5,7 +5,7 @@
   "author": "can-dy-jack",
   "scripts": {
     "dev": "pnpm --filter predoc run start",
-    "build": "pnpm --filter predoc run build",
+    "build": "lerna run build",
     "test:docs": "pnpm --filter @trial/docs run dev",
     "test:components": "pnpm --filter @trial/components run storybook",
     "version": "lerna version"
