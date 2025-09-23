@@ -1,15 +1,23 @@
 {
   "name": "@predoc/html",
   "version": "1.0.0",
-  "description": "",
-  "main": "./dist/index.js",
+  "description": "predoc html plugin",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "type": "module",
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup"
   },
-  "keywords": [],
-  "author": "",
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "predoc",
+    "plugin",
+    "html"
+  ],
+  "author": "can-dy-jack",
   "license": "MIT",
   "packageManager": "pnpm@10.13.1",
   "devDependencies": {

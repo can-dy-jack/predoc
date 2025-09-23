@@ -8,7 +8,7 @@
     "build": "lerna run build",
     "test:docs": "pnpm --filter @trial/docs run dev",
     "test:components": "pnpm --filter @trial/components run storybook",
-    "version": "lerna version"
+    "publish": "lerna publish"
   },
   "dependencies": {},
   "devDependencies": {
