@@ -2,6 +2,7 @@
   "name": "@predoc/html",
   "version": "1.0.0",
   "description": "predoc html plugin",
+  "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "type": "module",

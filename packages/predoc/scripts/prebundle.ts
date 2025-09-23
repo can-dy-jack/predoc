@@ -46,14 +46,15 @@ async function preBundle(deps: string[]) {
           });
           build.onLoad({ filter: /.*/, namespace: 'dep' }, async (args) => {
             const entryPath = normalizePath(args.path);
-            const res = require(entryPath);
+            const res = await import(entryPath);
+            // console.log(1, JSON.stringify(Object.keys(res)));
             // 拿出所有的具名导出
-            const specifiers = Object.keys(res);
+            const specifiers = Object.keys(res).filter((key) => key !== 'default');
             // 导出 ESM 格式的入口代码
             return {
               contents: `export { ${specifiers.join(
                 ','
-              )} } from "${entryPath}"; export default require("${entryPath}")`,
+              )} } from "${entryPath}"; export default import("${entryPath}")`,
               loader: 'js',
               resolveDir: process.cwd()
             };

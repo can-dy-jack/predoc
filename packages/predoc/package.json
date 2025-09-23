@@ -3,8 +3,16 @@
   "version": "0.1.0",
   "license": "MIT",
   "author": "can-dy-jack",
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "description": "A static site generator for Markdown",
   "files": [
     "src",
