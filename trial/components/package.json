@@ -4,7 +4,7 @@
   "description": "A test package for testing predoc's components",
   "main": "index.js",
   "scripts": {
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 3002",
     "build-storybook": "storybook build"
   },
   "keywords": [],

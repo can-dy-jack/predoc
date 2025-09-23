@@ -27,7 +27,7 @@
   },
   "scripts": {
     "tsc": "tsc -w",
-    "start": "tsup --watch",
+    "dev": "tsup --watch",
     "build": "tsup && pnpm build:deps",
     "build:deps": "tsx ./scripts/prebundle.ts",
     "lint": "eslint --ext .ts,.tsx,.js,.jsx ./src",

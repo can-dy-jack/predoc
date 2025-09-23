@@ -5,10 +5,8 @@
   "author": "can-dy-jack",
   "type": "module",
   "scripts": {
-    "dev": "pnpm --filter predoc run start",
+    "dev": "lerna run dev --parallel",
     "build": "lerna run build",
-    "test:docs": "pnpm --filter @trial/docs run dev",
-    "test:components": "pnpm --filter @trial/components run storybook",
     "publish": "lerna publish"
   },
   "dependencies": {},
