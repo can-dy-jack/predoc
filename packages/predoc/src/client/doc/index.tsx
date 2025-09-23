@@ -18,6 +18,7 @@ export function DocLayout() {
     }
   });
 
+  console.log('doc: ', sidebarData, matchedSidebarKey, pathname);
   const matchedSidebar = sidebarData[matchedSidebarKey] || [];
 
   return (

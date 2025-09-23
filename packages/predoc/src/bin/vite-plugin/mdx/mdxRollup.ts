@@ -44,7 +44,8 @@ export function pluginMdxRollup(config: SiteConfig) {
             content: {
               type: 'text',
               value: '#'
-            }
+            },
+            behavior: 'append'
           }
         ],
         rehypePluginCodeLine,

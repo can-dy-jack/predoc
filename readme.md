@@ -10,6 +10,7 @@
   └── ✕ unmet peer react@"^16.6.0 || ^17.0.0 || ^18.0.0": found 19.1.1
 - pageData层级问题
 - npm抢注组织predoc
+- 根据docs下的文件（排除一些固定的文件夹或文件 - 用户自定义 include 和 exclude ）自动生成nav和sidebar
 - monorepo
   - workspace
   - lerna

@@ -1,7 +1,8 @@
-import styles from './index.module.scss';
 import { Link } from '../../components/link';
 import { SidebarGroup, SidebarItem } from 'config/type';
 import React from 'react';
+
+import './index.scss';
 
 interface SidebarProps {
   sidebarData: SidebarGroup[];
@@ -46,7 +47,7 @@ export function Sidebar(props: SidebarProps) {
   };
 
   return (
-    <aside className={styles.sidebar}>
+    <aside className="predoc-doc-aside-container">
       <nav>{sidebarData.map(renderGroup)}</nav>
     </aside>
   );

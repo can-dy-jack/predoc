@@ -1,7 +1,7 @@
 {
   "name": "@trial/docs",
   "scripts": {
-    "dev": "predoc dev .",
+    "dev:docs": "predoc dev .",
     "build": "predoc build .",
     "preview": "predoc preview ."
   },

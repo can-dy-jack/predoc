@@ -20,3 +20,15 @@
 .admonition {
   background-color: var(--predoc-info);
 }
+
+h1, h2, h3, h4, h5, h6 {
+  scroll-margin-top: 60px;
+  .header-anchor {
+    margin-left: 6px;
+    opacity: 0;
+    transition: all 300ms linear;
+  }
+  &:hover .header-anchor {
+    opacity: 1;
+  }
+}
