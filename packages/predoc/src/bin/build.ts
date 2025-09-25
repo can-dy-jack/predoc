@@ -33,7 +33,8 @@ async function bundle(root: string, config: SiteConfig) {
         rollupOptions: {
           input: isServer ? SERVER_ENTRY_PATH : CLIENT_ENTRY_PATH,
           output: {
-            format: 'esm',
+            format: isServer ? 'cjs' : 'esm',
+            name: 'ssr.js',
           },
           external: EXTERNALS,
         },

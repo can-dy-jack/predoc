@@ -5,7 +5,6 @@
     "build": "predoc build .",
     "preview": "predoc preview ."
   },
-  "type": "module",
   "dependencies": {
     "lodash-es": "^4.17.21",
     "predoc": "0.1.0",

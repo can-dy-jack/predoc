@@ -29,7 +29,7 @@
     "tsc": "tsc -w",
     "dev": "tsup --watch",
     "build": "tsup && pnpm build:deps",
-    "build:deps": "tsx ./scripts/prebundle.ts",
+    "build:deps": "tsx ./scripts/prebundle.cts",
     "lint": "eslint --ext .ts,.tsx,.js,.jsx ./src",
     "lint:fix": "eslint --fix --ext .ts,.tsx,.js,.jsx ./src"
   },

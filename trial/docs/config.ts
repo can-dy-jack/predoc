@@ -1,6 +1,6 @@
-import { defineConfig } from 'predoc';
 
-export default defineConfig({
+
+export default {
   title: 'My Site233',
   description: 'This is my site description',
   themeConfig: {
@@ -38,4 +38,4 @@ export default defineConfig({
       ]
     }
   }
-})
+}

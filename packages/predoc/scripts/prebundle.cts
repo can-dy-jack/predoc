@@ -46,7 +46,7 @@ async function preBundle(deps: string[]) {
           });
           build.onLoad({ filter: /.*/, namespace: 'dep' }, async (args) => {
             const entryPath = normalizePath(args.path);
-            const res = await import(entryPath);
+            const res = require(entryPath);
             // console.log(1, JSON.stringify(Object.keys(res)));
             // 拿出所有的具名导出
             const specifiers = Object.keys(res).filter((key) => key !== 'default');
@@ -54,7 +54,7 @@ async function preBundle(deps: string[]) {
             return {
               contents: `export { ${specifiers.join(
                 ','
-              )} } from "${entryPath}"; export default import("${entryPath}")`,
+              )} } from "${entryPath}"; export default require("${entryPath}")`,
               loader: 'js',
               resolveDir: process.cwd()
             };
