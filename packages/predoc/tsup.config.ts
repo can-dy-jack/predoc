@@ -8,9 +8,9 @@ export default defineConfig({
   },
   bundle: true,
   splitting: true,
-  minify: process.env.NODE_ENV === 'production',
+  minify: false,
   outDir: 'dist',
-  format: 'esm',
+  format: ['esm', 'cjs'],
   dts: true,
   shims: true,
 });

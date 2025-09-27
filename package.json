@@ -8,7 +8,8 @@
     "dev": "lerna run dev --parallel",
     "dev:docs": "lerna run dev:docs",
     "build": "lerna run build",
-    "publish": "lerna publish"
+    "publish": "lerna publish",
+    "preview": "lerna run preview"
   },
   "dependencies": {},
   "devDependencies": {
