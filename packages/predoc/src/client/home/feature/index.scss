@@ -7,11 +7,11 @@
     grid-row: span 1;
     grid-column: span 1;
     .feature-box {
-      background-color: var(--predoc-gray-2);
+      // background-color: var(--predoc-gray-2);
       border-radius: var(--predoc-border-radius-large);
       box-sizing: border-box;
       padding: var(--predoc-padding-large);
-      border: 1px solid var(--predoc-gray-4);
+      border: 1px solid var(--predoc-border-light);
       display: flex;
       flex-direction: column;
       transition: all 0.3s ease;

@@ -10,9 +10,10 @@ export function App() {
 }
 
 export async function initPageData(routePath: string): Promise<PageData> {
-  const matched = matchRoutes(routes, routePath);
+  const matchedList = matchRoutes(routes, routePath);
+  const matched = matchedList ? matchedList[matchedList.length - 1] : null;
   if (matched) {
-    const moduleInfo = await matched[0].route.preload();
+    const moduleInfo = await matched.route.preload();
 
     return {
       siteData,

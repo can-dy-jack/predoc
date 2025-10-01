@@ -6,6 +6,7 @@ import './index.scss';
 
 export function HomeHero(props: { hero: Hero }) {
   const { hero } = props;
+
   return (
     <div className="predoc-hero">
       <div className="predoc-hero-container">
@@ -24,7 +25,13 @@ export function HomeHero(props: { hero: Hero }) {
           <div className="predoc-hero-actions">
             {hero.actions.map((action) => (
               <div key={action.link}>
-                <Button type={action.type} href={action.link} theme={action.theme || 'default'}>
+                <Button 
+                  type={action.type}
+                  theme={action.theme || 'default'}
+                  onClick={() => {
+                    window.location.href = action.link;
+                  }}
+                >
                   {action.text}
                 </Button>
               </div>

@@ -29,7 +29,7 @@ export function DocLayout() {
       <div className="predoc-doc-container">
         <div className="predoc-doc-content">
           <div className="predoc-doc-render markdown-body">
-            <Routers />
+            {/* <Outline /> */}
           </div>
           <div className="predoc-doc-footer">
             <DocFooter />

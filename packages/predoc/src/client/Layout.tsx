@@ -10,11 +10,12 @@ import { HomeLayout } from './home';
 import { DocLayout } from './doc';
 import { NotFoundLayout } from './notFound';
 import React from 'react';
+import { Routers } from '../server/Routers';
 
 export function Layout() {
   const pageData = usePageData();
 
-  const { pageType, title } = pageData;
+  const { pageType } = pageData;
 
   const getContent = () => {
     if (pageType === 'home') {
@@ -29,6 +30,7 @@ export function Layout() {
     <>
       <Navigation />
       <div>{getContent()}</div>
+      <Routers />
     </>
   );
 }

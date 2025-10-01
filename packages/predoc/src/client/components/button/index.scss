@@ -4,6 +4,7 @@
   box-shadow: 0 1px 1px var(--predoc-border-light);
   position: relative;
   overflow: hidden;
+  color: var(--color);
 
   border-radius: var(--predoc-border-radius);
   --predoc-btn-p: 8px 12px;
@@ -287,19 +288,7 @@
       color: rgba(var(--scope-color), 1);
     }
   }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-    &:hover {
-      color: inherit;
-    }
-    &:active {
-      color: inherit;
-    }
-  }
 }
-
 
 @keyframes rippleDrop {
   100% {
