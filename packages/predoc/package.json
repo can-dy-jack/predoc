@@ -7,6 +7,7 @@
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "private": false,
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -15,12 +16,10 @@
   },
   "description": "A static site generator for Markdown",
   "files": [
-    "src",
-    "index.html",
+    "dist",
     ".bin",
-    ".vscode",
     "readme.md",
-    "scripts"
+    "vendors"
   ],
   "bin": {
     "predoc": "./.bin/predoc.js"

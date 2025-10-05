@@ -4,23 +4,17 @@
 > [!NOTE]
 > 开发中 ～～～
 
-## todo
-- helmet
-  react-helmet-async 2.0.5
-  └── ✕ unmet peer react@"^16.6.0 || ^17.0.0 || ^18.0.0": found 19.1.1
+## todo list
+- SEO
+  - helmet
 - pageData层级问题
-- preview 命令有问题，参考 serve 库去修改
 - npm抢注组织predoc
+- github 流水线发布 npm ？
 - 根据docs下的文件（排除一些固定的文件夹或文件 - 用户自定义 include 和 exclude ）自动生成nav和sidebar
-- monorepo
+- monorepo配置
   - workspace
   - lerna
 - 提取公共依赖 - pnpm
-- predoc 
-  - 改成 type: module ? 
-  - package.json 的 type 和 module 配置
-  - 打包问题
-  - 打包后使用报错问题
 - 代码结构升级
   - create-predoc
   - 说明文档
@@ -32,8 +26,6 @@
     - 自定义标签
 - 全局搜索
 - 文章最近更新时间 / 发布时间
-- 打包问题
-  - 打包有时候会失败，疑似build顺序问题。暂时在windows下出现该问题
 - 组件
   - 基础组件：按钮、图标、下拉菜单、popup、tooltip、tab、table、form相关
   - react motion
@@ -41,7 +33,7 @@
     - https://juejin.cn/post/7078801234097864741
     - https://juejin.cn/post/7521160007854866467
     - https://juejin.cn/post/7178698886721044539
-
+ 
 ## run
 
 ```zsh

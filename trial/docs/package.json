@@ -6,6 +6,7 @@
     "preview": "predoc preview ."
   },
   "type": "module",
+  "private": true,
   "dependencies": {
     "lodash-es": "^4.17.21",
     "predoc": "0.1.0",
