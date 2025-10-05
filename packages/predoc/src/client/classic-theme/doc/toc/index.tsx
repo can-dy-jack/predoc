@@ -1,4 +1,4 @@
-import { Header, PropsWithIsland } from '../../type';
+import { Header, PropsWithIsland } from '../../../type';
 import { useRef, HTMLDivElement, useEffect } from 'react';
 import { bindingAsideScroll, scrollToTarget } from './toc';
 import React from 'react';

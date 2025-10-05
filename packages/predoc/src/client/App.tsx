@@ -1,6 +1,6 @@
 import { matchRoutes } from 'react-router-dom';
 import { PageData } from './type';
-import { Layout } from './Layout';
+import { Layout } from './classic-theme/Layout';
 import { routes } from 'predoc:route';
 import siteData from 'predoc:site-data';
 import React from 'react';
