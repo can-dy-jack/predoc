@@ -2,8 +2,6 @@ import { Link } from '../../components/link';
 import { SidebarGroup, SidebarItem } from 'config/type';
 import React from 'react';
 
-import './index.scss';
-
 interface SidebarProps {
   sidebarData: SidebarGroup[];
   pathname: string;
@@ -17,10 +15,6 @@ export function Sidebar(props: SidebarProps) {
     return (
       <div ml="5">
         <div
-          p="1"
-          block="~"
-          text="sm"
-          font-medium="~"
           className={`${active ? 'text-brand' : 'text-text-2'}`}
         >
           <Link href={item.link}>{item.text}</Link>
@@ -31,13 +25,13 @@ export function Sidebar(props: SidebarProps) {
 
   const renderGroup = (item: SidebarGroup) => {
     return (
-      <section key={item.text} block="~" not-first="divider-top mt-4">
-        <div flex="~" justify="between" items="center">
-          <h2 m="t-3 b-2" text="1rem text-1" font="bold">
+      <section key={item.text}>
+        <div>
+          <h2>
             {item.text}
           </h2>
         </div>
-        <div mb="1">
+        <div>
           {item.items?.map((item) => (
             <div key={item.link}>{renderGroupItem(item)}</div>
           ))}

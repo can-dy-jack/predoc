@@ -4,20 +4,18 @@ import './styles/themes.css';
 import './styles/markdown.css';
 import './styles/markdown-extra.scss';
 
+import './layout.scss';
+
 import { usePageData } from './hooks';
 import { Navigation } from './components';
 import { HomeLayout } from './home';
 import { DocLayout } from './doc';
 import { NotFoundLayout } from './notFound';
 import React from 'react';
-import { Routers } from '../../server/Routers';
+import { Footer } from './common/footer/footer';
 
 export function Layout() {
-  const pageData = usePageData();
-
-  const { pageType } = pageData;
-
-  console.log(1, pageData);
+  const { pageType } = usePageData();
 
   const getContent = () => {
     if (pageType === 'home') {
@@ -29,10 +27,12 @@ export function Layout() {
     }
   };
   return (
-    <>
+    <div class="predoc-layout">
       <Navigation />
-      <div>{getContent()}</div>
-      <Routers />
-    </>
+      <div className="predoc-layout-content">
+        {getContent()}
+        <Footer />  
+      </div>
+    </div>
   );
 }

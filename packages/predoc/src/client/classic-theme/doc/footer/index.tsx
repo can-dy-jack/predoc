@@ -1,32 +1,31 @@
-import styles from './index.module.scss';
 import { usePrevNextPage } from '../../hooks/usePrevNextPage';
 import React from 'react';
 
 export function DocFooter() {
   const { prevPage, nextPage } = usePrevNextPage();
+
   return (
-    <footer mt="8">
-      <div flex="~" gap="2" divider-top="~" pt="6">
-        <div flex="~ col" className={styles.prev}>
+    <div>
+      <div>
+        <div>
           {prevPage && (
-            <a href={prevPage.link} className={styles.pagerLink}>
-              <span className={styles.desc}>上一页</span>
-              <span className={styles.title}>{prevPage.text}</span>
+            <a href={prevPage.link}>
+              <span>上一页</span>
+              <span>{prevPage.text}</span>
             </a>
           )}
         </div>
-        <div flex="~ col" className={styles.next}>
+        <div>
           {nextPage && (
             <a
               href={nextPage.link}
-              className={`${styles.pagerLink} ${styles.next}`}
             >
-              <span className={styles.desc}>下一页</span>
-              <span className={styles.title}>{nextPage.text}</span>
+              <span>下一页</span>
+              <span >{nextPage.text}</span>
             </a>
           )}
         </div>
       </div>
-    </footer>
+    </div>
   );
 }

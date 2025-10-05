@@ -1,20 +1,20 @@
 import { usePageData } from '../../hooks';
 
 import './index.scss';
-import { SwitchAppearance } from '../themeSwitch';
+import { SwitchAppearance } from '../../components/themeSwitch';
 import React from 'react';
-import { Icon } from '../icons';
-import { Button } from '../button';
-import { Link } from '../link';
+import { Icon } from '../../components/icons';
+import { Button } from '../../components/button';
+import { Link } from '../../components/link';
 
 export function Navigation() {
   const data = usePageData();
-  const nav = data?.siteData?.siteData?.themeConfig?.nav || [];
+  const nav = data?.siteData?.themeConfig?.nav || [];
 
   return (
     <header className="predoc-nav">
       <div className="nav-left">
-        <img alt="logo - predoc" src="./ico.png" width="24" height="24" />
+        <img alt="logo - predoc" src="/ico.png" width="24" height="24" />
         <Link href='/'>
           predoc
         </Link>

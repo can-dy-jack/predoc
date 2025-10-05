@@ -1,0 +1,12 @@
+.predoc-footer {
+  background-color: var(--foot-bg);
+  .predoc-footer-container {
+    padding: var(--predoc-padding-large);
+    .predoc-footer-links {
+      padding: var(--predoc-padding-large);
+    }
+    .predoc-footer-copyright {
+      text-align: center;
+    }
+  }
+}
