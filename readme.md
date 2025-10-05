@@ -7,13 +7,10 @@
 ## todo list
 - SEO
   - helmet
-- pageData层级问题
+- [x] pageData层级问题
 - npm抢注组织predoc
 - github 流水线发布 npm ？
 - 根据docs下的文件（排除一些固定的文件夹或文件 - 用户自定义 include 和 exclude ）自动生成nav和sidebar
-- monorepo配置
-  - workspace
-  - lerna
 - 提取公共依赖 - pnpm
 - 代码结构升级
   - create-predoc
@@ -37,13 +34,17 @@
 ## run
 
 ```zsh
+# install
 pnpm install
 pnpm build
 
-pnpm link
+# development
+predoc dev
+predoc dev:docs
 
-predoc dev docs
+# build
+predoc build
 
-predoc build docs
-predoc preview docs
+# preview
+predoc preview
 ```

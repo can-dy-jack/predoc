@@ -1,6 +1,7 @@
 import { createRoot, hydrateRoot } from 'react-dom/client';
 import { ComponentType } from 'react';
-import { App, initPageData } from '../client/App';
+import { App } from '../client/App';
+import { initPageData } from '../client/initPageData';
 // import siteData from 'predoc:site-data';
 import { BrowserRouter } from 'react-router-dom';
 import { PageDataContext } from '../client';

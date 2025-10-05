@@ -1,11 +1,11 @@
-import { usePageData } from './usePageData';
+import { usePageData } from '../../hooks/usePageData';
 import { useLocation } from 'react-router-dom';
 import { SidebarItem } from 'config/type';
 
 export function usePrevNextPage() {
   const { pathname } = useLocation();
   const { siteData } = usePageData();
-  const sidebar = siteData.siteData.themeConfig?.sidebar || {};
+  const sidebar = siteData.themeConfig?.sidebar || {};
   const flattenTitles: SidebarItem[] = [];
 
   // 遍历 Sidebar 数据，收集所有的文章信息，并平铺到一个数组里面

@@ -1,7 +1,8 @@
 import { renderToString } from 'react-dom/server';
-import { App, initPageData } from '../client/App';
+import { initPageData } from '../client/initPageData';
 import { StaticRouter } from 'react-router-dom';
 import { PageDataContext } from '../client/classic-theme/hooks';
+import { App } from '../client/App';
 
 export interface RenderResult {
   appHtml: string;

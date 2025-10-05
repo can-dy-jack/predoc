@@ -1,2 +1,2 @@
-export { PageDataContext, usePageData } from './usePageData';
+export { PageDataContext, usePageData } from '../../hooks/usePageData';
 export * from './useTheme';

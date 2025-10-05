@@ -1,4 +1,4 @@
-import { SiteConfig } from '../config/type';
+import { UserConfig } from '../config/type';
 import { ComponentType } from 'react';
 
 export type PageType = 'home' | 'doc' | 'custom' | '404';
@@ -43,7 +43,7 @@ export interface FrontMatter {
 }
 
 export interface PageData {
-  siteData: SiteConfig;
+  siteData: UserConfig;
   pagePath: string;
   frontmatter: FrontMatter;
   pageType: PageType;

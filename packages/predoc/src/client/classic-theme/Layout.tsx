@@ -17,6 +17,8 @@ export function Layout() {
 
   const { pageType } = pageData;
 
+  console.log(1, pageData);
+
   const getContent = () => {
     if (pageType === 'home') {
       return < HomeLayout />;

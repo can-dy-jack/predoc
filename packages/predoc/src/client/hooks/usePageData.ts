@@ -1,4 +1,4 @@
-import { PageData } from '../../type';
+import { PageData } from '../type';
 import { createContext, useContext } from 'react';
 
 export const PageDataContext = createContext<PageData>({} as PageData);

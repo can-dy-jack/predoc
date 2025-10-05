@@ -1,7 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import { Sidebar } from './aside';
 import { usePageData } from '../hooks';
-import { Routers } from '@server';
 import { DocFooter } from './footer';
 import { Toc } from './toc';
 import React from 'react';
@@ -10,7 +9,7 @@ import './index.scss';
 
 export function DocLayout() {
   const { siteData, toc } = usePageData();
-  const sidebarData = siteData.siteData.themeConfig?.sidebar || {};
+  const sidebarData = siteData.themeConfig?.sidebar || {};
   const { pathname } = useLocation();
   const matchedSidebarKey = Object.keys(sidebarData).find((key) => {
     if (pathname.startsWith(key)) {
