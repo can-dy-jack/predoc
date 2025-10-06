@@ -1,41 +1,22 @@
-import React from 'react';
+import { Button, Link } from '../components';
+import './index.css';
 
 export function NotFoundLayout() {
   return (
-    <div
-      m="auto t-50"
-      p="t-16 x-6 b-24 sm:t-24 x-8 b-40"
-      text="center"
-      flex="center col"
-    >
-      <p text="6xl" font="semibold">
-        404
-      </p>
-      <h1 pt="3" text="xl" font="bold" className="leading-5">
-        PAGE NOT FOUND
-      </h1>
-      <div
-        m="t-6 x-auto b-4.5"
-        w="16"
-        style={{ height: '1px' }}
-        bg="divider-default"
-      />
-
-      <div pt="5">
-        <a
-          inline-block=""
-          border="1px solid brand"
-          rounded="2xl"
-          p="y-1 x-4"
-          text="sm brand"
-          font-medium=""
-          transition="border-color duration-300 color duration-300"
-          hover="border-color-brand-dark color-brand-dark"
-          href={'/'}
-          aria-label="go to home"
-        >
-          Take me home
-        </a>
+    <div className="error">
+      <div>
+        <div className="col-xs-12 ground-color text-center">
+          <div className="container-error-404">
+            <div className="clip"><div className="shadow"><span className="digit thirdDigit">4</span></div></div>
+            <div className="clip"><div className="shadow"><span className="digit secondDigit">0</span></div></div>
+            <div className="clip"><div className="shadow"><span className="digit firstDigit">4</span></div></div>
+            <div className="msg">OH!<span className="triangle"></span></div>
+          </div>
+          <h2 className="h1">Sorry! Page not found</h2>
+          <Button size='large' type='text'>
+            <Link>Go Home</Link>
+          </Button>
+        </div>
       </div>
     </div>
   );
