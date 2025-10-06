@@ -1,18 +1,15 @@
 import { createRoot, hydrateRoot } from 'react-dom/client';
 import { ComponentType } from 'react';
 import { App } from '../client/App';
-import { initPageData } from '../client/initPageData';
-// import siteData from 'predoc:site-data';
 import { BrowserRouter } from 'react-router-dom';
-import { PageDataContext } from '../client';
+import { initRouters, PageDataContext, RoutersContext, initPageData } from '../client/hooks';
 
 declare global {
-    interface Window {
+  interface Window {
     ISLANDS: Record<string, ComponentType<unknown>>;
     ISLAND_PROPS: unknown[];
   }
 }
-
 
 async function render2Browser() {
   const root = document.getElementById('predoc-app');
@@ -25,12 +22,15 @@ async function render2Browser() {
   if (process.env.NODE_ENV == 'development') {
     // 初始化 PageData
     const pageData = await initPageData(window.location.pathname);
+    const routers = await initRouters();
     createRoot(root).render(
+      <RoutersContext.Provider value={routers}>
         <PageDataContext.Provider value={pageData}>
           <BrowserRouter>
             <App />
           </BrowserRouter>
         </PageDataContext.Provider>
+      </RoutersContext.Provider>
     );
   } else {
     // 生产环境下的 Partial Hydration

@@ -1,6 +1,7 @@
-import { ReactNode, MouseEvent, HTMLButtonElement, useRef, ReactElement } from 'react';
+import { ReactNode, MouseEvent, useRef, ReactElement } from 'react';
 
 import './index.scss';
+import { PropsWithIsland } from 'client/type';
 
 type ButtonType = 'default' | 'dashed' | 'fill' | 'text' | 'link';
 type ButtonTheme = 'default' | 'primary' | 'dark' | 'danger' | 'success' | 'warning' | 'info';
@@ -11,10 +12,10 @@ interface ButtonProps {
   size?: 'normal' | 'small' | 'large' | 'mini';
   href?: string;
   children?: ReactNode;
-  onClick?: (e: MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  onClick?: (e: MouseEvent) => void;
 }
 
-export function Button(props: ButtonProps): ReactElement {
+export function Button(props: ButtonProps & PropsWithIsland): ReactElement {
   const {
     type = 'default',
     theme = 'primary',
@@ -26,7 +27,7 @@ export function Button(props: ButtonProps): ReactElement {
 
   const btnRef = useRef<HTMLButtonElement>(null);
 
-  const btnOnclick = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const btnOnclick = (e: MouseEvent) => {
     onClick?.(e);
 
     if (type == 'link') {

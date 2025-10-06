@@ -11,10 +11,10 @@
 - npm抢注组织predoc
 - github 流水线发布 npm ？
 - 根据docs下的文件（排除一些固定的文件夹或文件 - 用户自定义 include 和 exclude ）自动生成nav和sidebar
-- 提取公共依赖 - pnpm
 - 代码结构升级
   - create-predoc
   - 说明文档
+- 黑暗模式下切换页面会有白光闪动
 - markdown 解析 - 自定义 note 组件
   - 扩展mdx
     - mermaid

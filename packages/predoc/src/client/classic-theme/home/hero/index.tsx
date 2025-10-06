@@ -1,10 +1,9 @@
 import { Button } from '../../components/button';
-import { Hero } from 'client/type';
-import React from 'react';
+import { Hero, PropsWithIsland } from '../../../../client/type';
 
 import './index.scss';
 
-export function HomeHero(props: { hero: Hero }) {
+export function HomeHero(props: { hero: Hero } & PropsWithIsland) {
   const { hero } = props;
 
   return (
@@ -31,6 +30,7 @@ export function HomeHero(props: { hero: Hero }) {
                   onClick={() => {
                     window.location.href = action.link;
                   }}
+                  __island
                 >
                   {action.text}
                 </Button>

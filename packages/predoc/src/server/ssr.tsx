@@ -1,7 +1,6 @@
 import { renderToString } from 'react-dom/server';
-import { initPageData } from '../client/initPageData';
 import { StaticRouter } from 'react-router-dom';
-import { PageDataContext } from '../client/classic-theme/hooks';
+import { initRouters, PageDataContext, RoutersContext, initPageData } from '../client/hooks';
 import { App } from '../client/App';
 
 export interface RenderResult {
@@ -13,16 +12,19 @@ export interface RenderResult {
 export async function render(pagePath: string) {
 
   const pageData = await initPageData(pagePath);
+  const routers = await initRouters();
 
   const { clearIslandData, data } = await import('./jsx-runtime');
   clearIslandData();
 
   const appHtml = renderToString(
+    <RoutersContext.Provider value={routers}>
       <PageDataContext.Provider value={pageData}>
         <StaticRouter location={pagePath} >
           <App />
         </StaticRouter>
       </PageDataContext.Provider>
+    </RoutersContext.Provider>
   );
 
   const { islandProps, islandToPathMap } = data;

@@ -13,6 +13,7 @@
     "resolveJsonModule": true,
     "paths": {
       "@server": ["./server/index.ts"],
+      "@client": ["./client/index.ts"],
     },
   },
   "include": ["src/**/*", "scripts/prebundle.cts"],

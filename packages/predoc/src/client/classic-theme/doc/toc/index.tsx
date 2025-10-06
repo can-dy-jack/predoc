@@ -1,8 +1,6 @@
 import { Header, PropsWithIsland } from '../../../type';
-import { useRef, HTMLDivElement, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import { bindingAsideScroll, scrollToTarget } from './toc';
-import React from 'react';
-// import { useHeaders } from '../../logic/useHeaders';
 
 interface AsideProps {
   headers: Header[];
@@ -10,10 +8,8 @@ interface AsideProps {
 
 export function Toc(props: AsideProps & PropsWithIsland) {
   const { headers = [] } = props;
-  // 是否展示大纲栏
   const hasOutline = headers.length > 0;
-  // 当前标题会进行高亮处理，我们会在这个标题前面加一个 marker 元素
-  const markerRef = useRef<HTMLDivElement>(null);
+  const markerRef = useRef(null);
 
   useEffect(() => {
     const unbinding = bindingAsideScroll();
@@ -22,22 +18,32 @@ export function Toc(props: AsideProps & PropsWithIsland) {
     };
   }, []);
 
+  const onClickItem = (id: string) => {
+    const target = document.getElementById(id);
+    if (target) {
+      scrollToTarget(target, false);
+    }
+  }
+
   const renderHeader = (header: Header) => {
     return (
-      <li key={header.id}>
+      <li
+        key={header.id}
+        className='predoc-toc-item'
+        onClick={e => {
+          onClickItem(header.id)
+        }}
+      >
         <a
           href={`#${header.id}`}
           style={{
-            paddingLeft: (header.depth - 2) * 12
+            paddingLeft: (header.depth - 2) * 10 + 'px',
           }}
-          onClick={(e) => {
+          onClick={e => {
             e.preventDefault();
-            const target = document.getElementById(header.id);
-            if (target) {
-              scrollToTarget(target, false);
-            }
-          }
-        }
+            onClickItem(header.id)
+          }}
+          className='predoc-toc-link'
         >
           {header.text}
         </a>
@@ -46,23 +52,15 @@ export function Toc(props: AsideProps & PropsWithIsland) {
   };
 
   return (
-    <div>
-      <div>
-        {hasOutline && (
-          <div>
-            <div
-              ref={markerRef}
-              id="aside-marker"
-              ></div>
-            <div>
-              ON THIS PAGE
-            </div>
-            <nav>
-              <ul>{headers.map(renderHeader)}</ul>
-            </nav>
-          </div>
-        )}
-      </div>
+    <div className='predoc-toc-box' id='aside-container'>
+      {hasOutline && (
+        <div className='predoc-toc'>
+          <div ref={markerRef} id="aside-marker"></div>
+          <nav className='predoc-toc-nav'>
+            <ul className='predoc-toc-list'>{headers.map(renderHeader)}</ul>
+          </nav>
+        </div>
+      )}
     </div>
   );
 }

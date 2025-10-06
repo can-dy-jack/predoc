@@ -2,8 +2,9 @@ import { useTheme } from '../../hooks';
 import React from 'react';
 
 import './index.scss';
+import { PropsWithIsland } from '../../../../client/type';
 
-export function SwitchAppearance() {
+export function SwitchAppearance(props: PropsWithIsland) {
   const { light, toggle } = useTheme();
 
   return (

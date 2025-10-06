@@ -11,7 +11,6 @@ import { Navigation } from './components';
 import { HomeLayout } from './home';
 import { DocLayout } from './doc';
 import { NotFoundLayout } from './notFound';
-import React from 'react';
 import { Footer } from './common/footer/footer';
 
 export function Layout() {
@@ -27,7 +26,7 @@ export function Layout() {
     }
   };
   return (
-    <div class="predoc-layout">
+    <div className="predoc-layout">
       <Navigation />
       <div className="predoc-layout-content">
         {getContent()}

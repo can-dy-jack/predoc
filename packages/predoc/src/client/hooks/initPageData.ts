@@ -1,4 +1,4 @@
-import { PageData } from './type';
+import { PageData } from '../type';
 import { routes } from 'predoc:route';
 import siteData from 'predoc:site-data';
 import { matchRoutes } from 'react-router-dom';

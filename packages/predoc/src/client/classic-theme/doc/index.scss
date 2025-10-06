@@ -1,20 +1,51 @@
 .predoc-doc {
+  flex: 1 0;
   display: flex;
   flex-direction: row;
   background-color: var(--bg);
 
   .predoc-doc-aside {
-    width: 250px;
+    flex: 0 0 300px;
     border-right: 1px solid var(--predoc-border-light);
+    .predoc-doc-aside-container {
+      padding: 6px 0 6px 6px;
+      position: sticky;
+      top: 52px;
+      left: 0;
+      max-height: calc(100vh - 52px);
+      overflow-y: auto;
+      .predoc-side-title {
+        transition: all 250ms linear;
+        cursor: pointer;
+        &:hover {
+          .predoc-link {
+            background-color: var(--predoc-bg-gray);
+            border-radius: 4px 0 0 4px;
+            color: var(--primary);
+          }
+        }
+        .predoc-link {
+          display: inline-block;
+          padding: 6px 10px;
+          width: 100%;
+          border-radius: 4px 0 0 4px;
+        }
+        .predoc-link.current {
+          background-color: var(--predoc-bg-gray);
+          color: var(--primary);
+          border-radius: 4px 0 0 4px;
+        }
+      }
+    }
   }
 
   .predoc-doc-container {
-    flex: 1;
+    flex: 1 0 auto;
     display: flex;
     flex-direction: row;
     box-sizing: border-box;
     .predoc-doc-content {
-      flex: 1 0;
+      flex: 8 0;
       display: flex;
       flex-direction: column;
       box-sizing: border-box;
@@ -25,14 +56,67 @@
     .predoc-doc-toc {
       padding: var(--predoc-padding);
       height: 100%;
-      flex: 1 0;
+      flex: 2 0;
       .predoc-doc-toc-box {
         position: sticky;
-        top: 24px;
+        top: 80px;
         left: 0;
-        max-height: calc(100vh - 48px); /* 确保内容不会超出视口 */
+        max-height: calc(100vh - 120px);
         overflow-y: auto;
+        border-left: 1px solid var(--predoc-border-light);
+        .predoc-toc-box {
+          .predoc-toc-item {
+            cursor: pointer;
+            &:hover .predoc-toc-link {
+              color: var(--primary);
+            }
+          }
+          .predoc-toc-list {
+            list-style: none;
+            margin: 0;
+            padding: 5px 16px;
+            .predoc-toc-link {
+              text-decoration: none;
+              color: var(--color);
+              line-height: 26px;
+              font-size: 14px;
+              transition: all 250ms linear;
+              &:hover {
+                color: var(--primary);
+              }
+            }
+          }
+          #aside-marker {
+            background-color: rgba(var(--primary-color), 0.1);
+            border-left: 1px solid var(--primary);
+            width: 90%;
+            height: 24px;
+            left: 0px;
+            position: absolute;
+            z-index: 1;
+            top: 5px;
+            transition: all 250ms linear;
+          }
+        }
       }
+    }
+  }
+  .predoc-back2top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    background-color: var(--predoc-border-light);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 250ms ease-in-out;
+    &:hover {
+      background-color: var(--primary);
+      color: #fff;
     }
   }
 }

@@ -33,6 +33,7 @@ export default defineConfig([
         module: 'readonly',
         require: 'readonly',
         console: 'readonly',
+        ...globals.browser,
       }
     },
     rules: {

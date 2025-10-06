@@ -22,9 +22,9 @@ export function pluginRoute(option: pluginRouteOption): Plugin {
         return '\0' + ROUTE_MODULE_ID;
       }
     },
-    load(id) {
+    async load(id) {
       if (id === '\0' + ROUTE_MODULE_ID) {
-        return route.generateRoutesCode(option.ssr || false);
+        return await route.generateRoutesCode(option.ssr || false);
       }
     }
   };
@@ -47,7 +47,7 @@ export class Route {
       .sync(['**/*.{jsx,tsx,md,mdx}'], {
         cwd: this.#scanDir,
         absolute: true,
-        ignore: ['**/node_modules/**', '**/build/**', 'config.ts']
+        ignore: ['**/node_modules/**', '**/build/**', 'config.ts', '**/src/**']
       })
       .sort();
     files.forEach((file) => {
@@ -70,15 +70,15 @@ export class Route {
     return routePath.startsWith('/') ? routePath : `/${routePath}`;
   }
 
-  generateRoutesCode(ssr: boolean = false) {
+  async generateRoutesCode(ssr: boolean = false) {
     return `
 import React from 'react';
-${ssr ? '' : 'import loadable from \'@loadable/component\';'}
+${ssr ? '' : "import loadable from '@loadable/component';"}
 ${this.#routeData
   .map((route, index) => {
-    return ssr ? 
-      `import Route${index} from '${route.absolutePath}';` :
-      `const Route${index} = loadable(() => import('${route.absolutePath}'));`;
+    return ssr
+      ? `import Route${index} from '${route.absolutePath}';`
+      : `const Route${index} = loadable(() => import('${route.absolutePath}'));`;
   })
   .join('\n')}
 export const routes = [

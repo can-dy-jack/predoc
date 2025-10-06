@@ -39,6 +39,7 @@ export function pluginConfig(config: SiteConfig, restartServer: () => Promise<vo
         resolve: {
           alias: {
             '@server': join(ROOT, 'src', 'server', 'index.ts'),
+            '@client': join(ROOT, 'src', 'client', 'index.ts'),
           }
         },
         css: {

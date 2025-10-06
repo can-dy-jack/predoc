@@ -11,3 +11,7 @@ body {
   font-size: var(--predoc-font-size);
   color-scheme: light dark;
 }
+
+html {
+  scroll-behavior: smooth;
+}

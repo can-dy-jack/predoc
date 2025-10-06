@@ -1,15 +1,12 @@
-import { usePageData } from '../../hooks';
-
 import './index.scss';
 import { SwitchAppearance } from '../../components/themeSwitch';
-import React from 'react';
 import { Icon } from '../../components/icons';
 import { Button } from '../../components/button';
 import { Link } from '../../components/link';
+import { PropsWithIsland, RouteItem, useRouters } from '@client';
 
 export function Navigation() {
-  const data = usePageData();
-  const nav = data?.siteData?.themeConfig?.nav || [];
+  const routers = useRouters();
 
   return (
     <header className="predoc-nav">
@@ -21,13 +18,7 @@ export function Navigation() {
       </div>
       <div className="nav-right">
         <div className="nav-menus">
-          {nav.map((item) => (
-            <div key={item.text}>
-              <Link isMenu>
-                {item.text}
-              </Link>
-            </div>
-          ))}
+          {routers.map((item) => <NavItem key={item.fullPath} item={item} />)}
         </div>
 
         <div className="nav-theme-toggle">
@@ -42,4 +33,23 @@ export function Navigation() {
       </div>
     </header>
   );
+}
+
+interface NavItemProps {
+  item: RouteItem;
+}
+function NavItem(props: NavItemProps & PropsWithIsland) {
+  const { item } = props;
+  const { extra } = item;
+  const text = extra?.frontmatter?.title || extra.title || item.path;
+
+  const isCur = window.location.pathname.split("/")[1] === item.path;
+
+  return (
+    <div>
+      <Link isMenu href={'/' + item.fullPath} isCurrent={isCur}>
+        {text}
+      </Link>
+    </div>
+  )
 }

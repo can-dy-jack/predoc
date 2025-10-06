@@ -1,48 +1,60 @@
+import { RouteItem, useRouters } from '@client';
 import { Link } from '../../components/link';
-import { SidebarGroup, SidebarItem } from 'config/type';
-import React from 'react';
+import { useLocation } from 'react-router-dom';
+import { children } from 'hastscript/lib/jsx-classic';
 
 interface SidebarProps {
-  sidebarData: SidebarGroup[];
-  pathname: string;
 }
 
 export function Sidebar(props: SidebarProps) {
-  const { sidebarData, pathname } = props;
+  // FIXME + base
+  const { pathname } = useLocation();
+  const routes = useRouters();
 
-  const renderGroupItem = (item: SidebarItem) => {
-    const active = item.link === pathname;
+  const currentSides = routes.filter(route => {
+    return route.fullPath === pathname.split('/')[1];
+  });
+  // console.log(
+  //   1, pathname, routes, currentSides
+  // )
+  const sides = currentSides.length > 0 ? [
+    {
+      ...currentSides[0],
+      children: [],
+    },
+    ...currentSides[0].children
+  ] : [];
+
+  function getText(item: RouteItem) {
+    return item.extra.frontmatter?.title || item.extra.title || item.path || "";
+  }
+
+  const renderGroup = (items: RouteItem[], level: number = 1) => {
     return (
-      <div ml="5">
-        <div
-          className={`${active ? 'text-brand' : 'text-text-2'}`}
+      items?.map(item => (
+        <section 
+          key={item.fullPath} 
+          className={`predoc-side predoc-side-level-${level}${item.fullPath === pathname ? ' active' : ''}`}
         >
-          <Link href={item.link}>{item.text}</Link>
-        </div>
-      </div>
-    );
-  };
-
-  const renderGroup = (item: SidebarGroup) => {
-    return (
-      <section key={item.text}>
-        <div>
-          <h2>
-            {item.text}
-          </h2>
-        </div>
-        <div>
-          {item.items?.map((item) => (
-            <div key={item.link}>{renderGroupItem(item)}</div>
-          ))}
-        </div>
-      </section>
+          <div 
+            className={`predoc-side-title predoc-side-level-${level}-title`}           
+            style={{
+              marginLeft: level / 2 + 'rem'
+            }}
+          >
+            <Link isMenu isCurrent={'/' + item.fullPath === pathname} href={'/' + item.fullPath}>
+              { getText(item) }
+            </Link>
+          </div>
+          { renderGroup(item.children, level + 1) }
+        </section>
+      ))
     );
   };
 
   return (
     <aside className="predoc-doc-aside-container">
-      <nav>{sidebarData.map(renderGroup)}</nav>
+      <nav>{renderGroup(sides)}</nav>
     </aside>
   );
 }

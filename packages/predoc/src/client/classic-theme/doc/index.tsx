@@ -1,31 +1,19 @@
-import { useLocation } from 'react-router-dom';
 import { Sidebar } from './aside';
 import { usePageData } from '../hooks';
 import { DocFooter } from './footer';
 import { Toc } from './toc';
-import React from 'react';
 
 import './index.scss';
 import { Routers } from '@server';
 
 export function DocLayout() {
-  const { siteData, toc } = usePageData();
-  const sidebarData = siteData.themeConfig?.sidebar || {};
-  const { pathname } = useLocation();
-  const matchedSidebarKey = Object.keys(sidebarData).find((key) => {
-    if (pathname.startsWith(key)) {
-      return true;
-    }
-  });
-
-  console.log('doc: ', sidebarData, matchedSidebarKey, pathname);
-  const matchedSidebar = sidebarData[matchedSidebarKey] || [];
+  const { toc } = usePageData();
 
   return (
     <>
       <div className="predoc-doc">
         <div className="predoc-doc-aside">
-          <Sidebar sidebarData={matchedSidebar} pathname={pathname} />
+          <Sidebar />
         </div>
         <div className="predoc-doc-container">
           <div className="predoc-doc-content">
@@ -40,6 +28,16 @@ export function DocLayout() {
           <div className="predoc-doc-toc">
             <div className="predoc-doc-toc-box"><Toc headers={toc} __island /></div>
           </div>
+        </div>
+
+        <div className='predoc-back2top' onClick={() => {
+          window.scrollTo({
+            left: 0,
+            top: 0,
+            behavior: 'smooth',
+          });
+        }}>
+          T
         </div>
       </div>
     </>

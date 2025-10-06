@@ -1,4 +1,5 @@
 /// <reference types="vite/client" />
+/// <reference lib="dom" />
 
 declare module 'predoc:site-data' {
   import type { SiteConfig } from 'config/type';
@@ -8,7 +9,6 @@ declare module 'predoc:site-data' {
 }
 
 declare module 'predoc:route' {
-  // import { RouteObject } from 'react-router-dom';
   import type { ReactElement } from 'react';
   import { PageModule } from '../client/type';
   interface RouteItem {

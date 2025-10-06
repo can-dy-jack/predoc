@@ -1,5 +1,10 @@
 .predoc-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   .predoc-layout-content {
-    flex: 1;
+    flex: auto;
+    display: flex;
+    flex-direction: column;
   }
 }

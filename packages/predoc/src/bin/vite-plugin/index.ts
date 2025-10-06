@@ -30,7 +30,7 @@ export function createVitePlugin(
       }
     }),
     pluginConfig(config, restartServer),
-    pluginRoute({ root: config.root, ssr: isSSR }),
     createPluginMdx(config),
+    pluginRoute({ root: config.root, ssr: isSSR }),
   ];
 }
