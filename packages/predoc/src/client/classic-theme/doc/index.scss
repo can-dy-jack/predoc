@@ -7,6 +7,7 @@
   .predoc-doc-aside {
     flex: 0 0 300px;
     border-right: 1px solid var(--predoc-border-light);
+
     .predoc-doc-aside-container {
       padding: 6px 0 6px 6px;
       position: sticky;
@@ -14,9 +15,11 @@
       left: 0;
       max-height: calc(100vh - 52px);
       overflow-y: auto;
+
       .predoc-side-title {
         transition: all 250ms linear;
         cursor: pointer;
+
         &:hover {
           .predoc-link {
             background-color: var(--predoc-bg-gray);
@@ -24,12 +27,14 @@
             color: var(--primary);
           }
         }
+
         .predoc-link {
           display: inline-block;
           padding: 6px 10px;
           width: 100%;
           border-radius: 4px 0 0 4px;
         }
+
         .predoc-link.current {
           background-color: var(--predoc-bg-gray);
           color: var(--primary);
@@ -45,21 +50,25 @@
     flex-direction: row;
     box-sizing: border-box;
     width: 0;
+
     .predoc-doc-content {
       flex: 8 1 auto;
       display: flex;
       width: 0;
       flex-direction: column;
       box-sizing: border-box;
+
       .predoc-doc-render {
         padding: 24px;
       }
     }
+
     .predoc-doc-toc {
       padding: var(--predoc-padding);
       height: 100%;
       width: 0;
       flex: 2 1 auto;
+
       .predoc-doc-toc-box {
         position: sticky;
         top: 80px;
@@ -67,28 +76,34 @@
         max-height: calc(100vh - 120px);
         overflow-y: auto;
         border-left: 1px solid var(--predoc-border-light);
+
         .predoc-toc-box {
           .predoc-toc-item {
             cursor: pointer;
+
             &:hover .predoc-toc-link {
               color: var(--primary);
             }
           }
+
           .predoc-toc-list {
             list-style: none;
             margin: 0;
             padding: 5px 16px;
+
             .predoc-toc-link {
               text-decoration: none;
               color: var(--color);
               line-height: 26px;
               font-size: 14px;
               transition: all 250ms linear;
+
               &:hover {
                 color: var(--primary);
               }
             }
           }
+
           #aside-marker {
             // background-color: rgba(var(--primary-color), 0.1);
             border-left: 2px solid var(--primary);
@@ -104,6 +119,54 @@
       }
     }
   }
+
+  .predoc-doc-footer {
+    padding: var(--predoc-padding-large);
+
+    .predoc-doc-prev-next {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .predoc-doc-prev,
+    .predoc-doc-next {
+      flex: 1 0 50%;
+      overflow: auto;
+      display: inline-block;
+
+      a {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 10px;
+        border: 1px solid var(--predoc-border-light);
+        border-radius: 5px;
+        transition: all 250ms linear;
+        text-overflow: ellipsis;
+        white-space: pre;
+        &:hover {
+          border-color: var(--primary);
+        }
+      }
+
+      .predoc-doc-next-tip,
+      .predoc-doc-prev-tip {
+        font-size: 0.6rem;
+        color: rgba(var(--primary-color-light), 1);
+      }
+
+      .predoc-doc-next-title,
+      .predoc-doc-prev-title {
+        font-size: 1rem;
+        // color: var(--color);
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+  }
+
   .predoc-back2top {
     position: fixed;
     right: 20px;
@@ -117,6 +180,7 @@
     background-color: var(--predoc-border-light);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: all 250ms ease-in-out;
+
     &:hover {
       background-color: var(--primary);
       color: #fff;

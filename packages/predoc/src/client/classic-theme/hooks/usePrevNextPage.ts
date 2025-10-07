@@ -1,24 +1,37 @@
-import { usePageData } from '../../hooks/usePageData';
 import { useLocation } from 'react-router-dom';
-import { SidebarItem } from 'config/type';
+import { useCurrentSides } from './useCurrentSides';
+import { RouteItem } from '@client';
+
+interface SideList {
+  link: string;
+  text: string;
+}
 
 export function usePrevNextPage() {
+  const sides = useCurrentSides();
   const { pathname } = useLocation();
-  const { siteData } = usePageData();
-  const sidebar = siteData.themeConfig?.sidebar || {};
-  const flattenTitles: SidebarItem[] = [];
 
-  // 遍历 Sidebar 数据，收集所有的文章信息，并平铺到一个数组里面
-  Object.keys(sidebar).forEach((key) => {
-    const groups = sidebar[key] || [];
-    groups.forEach((group) => {
-      group.items.forEach((item) => {
-        flattenTitles.push(item);
+  const flattenTitles: SideList[] = [];
+
+  function getText(item: RouteItem) {
+    return item.extra.frontmatter?.title || item.extra.title || item.path || "";
+  }
+
+  function getTitles(list: RouteItem[]) {
+    list.forEach(item => {
+      flattenTitles.push({
+        link: item.fullPath,
+        text: getText(item)
       });
-    });
-  });
+      if (item.children) {
+        getTitles(item.children);
+      }
+    })
+  }
+  getTitles(sides);
 
-  const pageIndex = flattenTitles.findIndex((item) => item.link === pathname);
+  // console.log(1, pathname, flattenTitles);
+  const pageIndex = flattenTitles.findIndex((item) => '/' + item.link === pathname);
 
   const prevPage = flattenTitles[pageIndex - 1] || null;
   const nextPage = flattenTitles[pageIndex + 1] || null;

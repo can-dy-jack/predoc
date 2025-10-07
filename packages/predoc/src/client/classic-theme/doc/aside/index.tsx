@@ -1,22 +1,15 @@
-import { RouteItem, useRouters } from '@client';
+import { RouteItem } from '@client';
 import { Link } from '../../components/link';
+import { useCurrentSides } from '../../hooks';
 import { useLocation } from 'react-router-dom';
-import { children } from 'hastscript/lib/jsx-classic';
 
 interface SidebarProps {
 }
 
 export function Sidebar(props: SidebarProps) {
-  // FIXME + base
+  const currentSides = useCurrentSides();
   const { pathname } = useLocation();
-  const routes = useRouters();
-
-  const currentSides = routes.filter(route => {
-    return route.fullPath === pathname.split('/')[1];
-  });
-  // console.log(
-  //   1, pathname, routes, currentSides
-  // )
+  
   const sides = currentSides.length > 0 ? [
     {
       ...currentSides[0],
