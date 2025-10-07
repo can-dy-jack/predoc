@@ -2,6 +2,7 @@
   font-family: 'PT Sans Caption', sans-serif, 'arial', 'Times New Roman';
   flex: 1 0;
   text-align: center;
+  padding: 20px;
 }
 
 .error .clip .shadow {
@@ -48,7 +49,7 @@
 
 
 .error .container-error-404 {
-  margin-top: 10%;
+  margin-top: 50px;
   position: relative;
   height: 250px;
   padding-top: 40px;

@@ -1,0 +1,165 @@
+---
+title: 数学公式
+---
+# 数学公式
+> Predoc 使用 `rehype-katex` 和 `remark-math` 进行公式渲染
+
+KaTeX 是一个高效的 JavaScript 库，用于在网页上渲染数学表达式，支持 LaTeX 语法。
+基础语法包括加减乘除、指数和根号、括号、运算符、文本和间距等常用数学符号的表示方法。
+进阶部分涵盖求和与积分、矢量与矩阵、希腊字母、箭头与逻辑符号、其他常用符号以及定义和引用等更复杂的数学表达方式。
+该工具适用于需要在网页中嵌入复杂数学公式的应用场景。
+
+## 单行公式
+
+> 使用 单个 `$` 包裹起来的是单行公式
+
+The circumference of a circle is $2\pi r$.
+
+## 多行公式
+
+> 使用两个 `$$` 包裹起来的是单行公式
+
+$$
+\left\{
+\begin{aligned}
+x^2 & , \quad x > 0 \\
+0 & , \quad x = 0 \\
+-x & , \quad x < 0
+\end{aligned}
+\right.
+$$
+
+## 示例
+
+```md
+Lift($$L$$) can be determined by Lift Coefficient ($$C_L$$) like the following
+equation.
+
+$$
+% \f is defined as #1f(#2) using the macro
+\f\relax{x} = \int_{-\infty}^\infty
+    \f\hat\xi\,e^{2 \pi i \xi x}
+    \,d\xi
+$$
+```
+
+渲染结果：
+
+Lift($$L$$) can be determined by Lift Coefficient ($$C_L$$) like the following
+equation.
+
+$$
+\f\relax{x} = \int_{-\infty}^\infty
+    \f\hat\xi\,e^{2 \pi i \xi x}
+    \,d\xi
+$$
+
+:::success
+注意：该公式需要自定义宏：`math: {"\\f": "#1f(#2)"}`
+:::
+
+## katex基础语法
+```markdown
+加法：a + b
+减法：a - b
+乘法：a \times b
+除法：\frac{a}{b}
+
+指数：a^b
+次方根：\sqrt{a}
+高次方根：\sqrt[n]{a}
+
+普通括号：(a+b)
+方括号：[a+b]
+大括号：\{a+b\}
+
+等号：a = b
+不等号：a \ne b
+大于：a > b
+小于：a < b
+大于等于：a \ge b
+小于等于：a \le b
+
+文本：\text{Hello, World!} → Hello, World!
+间距：\, （窄间距）、\: （中间距）、\; （宽间距）
+```
+
+加法：$a + b$  
+减法：$a - b$  
+乘法：$a \times b$  
+除法：$\frac{a}{b}$  
+
+指数：$a^b$  
+次方根：$\sqrt{a}$  
+高次方根：$\sqrt[n]{a}$  
+
+普通括号：$(a+b)$  
+方括号：$[a+b]$  
+大括号：$\{a+b\}$   
+
+等号：$a = b$   
+不等号：$a \ne b$   
+大于：$a > b$  
+小于：$a < b$  
+大于等于：$a \ge b$  
+小于等于：$a \le b$    
+
+$文本：\text{Hello, World!} → Hello, World!$  
+$间距：\, （窄间距）、\: （中间距）、\; （宽间距）$
+
+```markdown
+求和：\sum_{i=1}^n i
+求积：\prod_{i=1}^n i
+不定积分：\int x \, dx
+定积分：\int_{a}^{b} x \, dx
+
+粗体矢量：\mathbf{v}
+带箭头的矢量：\vec{v}
+
+小写希腊字母：\alpha
+大写希腊字母：\Gamma
+
+箭头：\rightarrow
+
+逻辑与：\land
+逻辑或：\lor
+
+无穷大：\infty
+部分导数：\partial
+集合符号：\in ，\subset
+
+定义符号：\triangleq
+引用符号：\equiv
+```
+
+求和：$\sum_{i=1}^n i$  
+求积：$\prod_{i=1}^n i$  
+不定积分：$\int x \, dx$  
+定积分：$\int_{a}^{b} x \, dx$  
+
+粗体矢量：$\mathbf{v}$  
+带箭头的矢量：$\vec{v}$  
+
+小写希腊字母：$\alpha$  
+大写希腊字母：$\Gamma$  
+
+箭头：$\rightarrow$  
+
+逻辑与：$\land$  
+逻辑或：$\lor$  
+
+无穷大：$\infty$  
+部分导数：$\partial$  
+集合符号：$\in ，\subset$  
+
+定义符号：$\triangleq$  
+引用符号：$\equiv$  
+
+### 技巧
+1. 注释： 以 `%` 开头的行会被注释掉
+2. 支持配置 宏 ： `math: {"\\R": "\\mathbb{R}", "\\f": "#1f(#2)"}`
+
+### 参考资料
+
+- [Katex 官网](https://katex.org/)
+- [KaTeX基础语法](https://blog.houxiongxiong.icu/archives/eDiSR8C5)

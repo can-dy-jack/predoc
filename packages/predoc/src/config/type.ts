@@ -21,10 +21,20 @@ export interface ThemeConfig {
       light: BuiltinTheme;
       dark: BuiltinTheme;
     }
-  }
+  },
+  math?: Record<string, string>;
 }
 
 export interface Footer {
-  message?: string;
   copyright?: string;
+  links?: FooterLinkGroup[];
+}
+
+export interface FooterLinkGroup {
+  label: string;
+  items: FooterLinkItem[];
+}
+export interface FooterLinkItem {
+  href: string;
+  label: string;
 }

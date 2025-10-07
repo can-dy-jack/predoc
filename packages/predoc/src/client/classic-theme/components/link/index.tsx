@@ -3,7 +3,6 @@ import './index.scss';
 
 export interface LinkProps {
   href?: string;
-  isExternal?: boolean;
   isMenu?: boolean;
   isCurrent?: boolean;
   children?: React.ReactNode;
@@ -11,7 +10,10 @@ export interface LinkProps {
 }
 
 export function Link(props: LinkProps) {
-  const { href = '/', children, isExternal = false, isMenu = false, isCurrent = false } = props;
+  const { href = '/', children, isMenu = false, isCurrent = false } = props;
+
+  const isExternal = href.startsWith('http');
+
   const target = isExternal ? '_blank' : '';
   const rel = isExternal ? 'noopener noreferrer' : undefined;
   return (

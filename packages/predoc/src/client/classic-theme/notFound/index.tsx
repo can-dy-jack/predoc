@@ -12,7 +12,8 @@ export function NotFoundLayout() {
             <div className="clip"><div className="shadow"><span className="digit firstDigit">4</span></div></div>
             <div className="msg">OH!<span className="triangle"></span></div>
           </div>
-          <h2 className="h1">Sorry! Page not found</h2>
+          {/* Sorry! Page not found */}
+          <h2 className="h1">对不起，页面未找到！</h2>
           <Button size='large' type='text'>
             <Link>Go Home</Link>
           </Button>

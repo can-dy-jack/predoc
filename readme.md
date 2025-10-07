@@ -7,13 +7,12 @@
 ## todo list
 - SEO
   - helmet
-- [x] pageData层级问题
-- npm抢注组织predoc
+- npm
+  - predoc
+  - create-predoc
 - github 流水线发布 npm ？
 - 根据docs下的文件（排除一些固定的文件夹或文件 - 用户自定义 include 和 exclude ）自动生成nav和sidebar
-- 代码结构升级
-  - create-predoc
-  - 说明文档
+- 编写说明文档
 - 黑暗模式下切换页面会有白光闪动
 - markdown 解析 - 自定义 note 组件
   - 扩展mdx
@@ -30,7 +29,8 @@
     - https://juejin.cn/post/7078801234097864741
     - https://juejin.cn/post/7521160007854866467
     - https://juejin.cn/post/7178698886721044539
- 
+- 国际化
+
 ## run
 
 ```zsh

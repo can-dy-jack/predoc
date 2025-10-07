@@ -1,10 +1,36 @@
 .predoc-footer {
   background-color: var(--foot-bg);
+
   .predoc-footer-container {
     padding: var(--predoc-padding-large);
+
     .predoc-footer-links {
       padding: var(--predoc-padding-large);
+      display: flex;
+      justify-content: space-evenly;
+      gap: 20px;
+      flex-wrap: wrap;
+      flex-direction: row;
+
+      .predoc-footer-links-group {
+        .predoc-footer-links-group-title {
+          color: gray;
+          font-size: 1.4em;
+
+        }
+
+        .predoc-footer-link {
+          line-height: 2;
+          display: flex;
+          gap: 5px;
+          align-items: center;
+          &:hover {
+            color: var(--primary-light);
+          }
+        }
+      }
     }
+
     .predoc-footer-copyright {
       text-align: center;
     }

@@ -10,6 +10,8 @@ import { remarkPluginToc } from './remark/toc';
 import { SiteConfig } from 'config/type';
 import remarkAdmonitionPlugin from './remark/admonitions';
 import remarkDirective from 'remark-directive';
+import rehypeKatex from 'rehype-katex';
+import remarkMath from 'remark-math';
 
 export function pluginMdxRollup(config: SiteConfig) {
   const codeLineTheme = config.siteData.themeConfig.codeLine.theme;
@@ -22,12 +24,14 @@ export function pluginMdxRollup(config: SiteConfig) {
     lightTheme = codeLineTheme.light || 'github-light';
     darkTheme = codeLineTheme.dark || 'github-dark';
   }
+  const math = config.siteData.themeConfig?.math || {};
 
   return [
     pluginMdx({
       remarkPlugins: [
         remarkGfm, 
         remarkFrontmatter,
+        remarkMath,
         remarkAdmonitionPlugin,
         remarkDirective,
         remarkMDXFrontMatter,
@@ -46,6 +50,14 @@ export function pluginMdxRollup(config: SiteConfig) {
               value: '#'
             },
             behavior: 'append'
+          }
+        ],
+        [
+          rehypeKatex,
+          {
+            output: "mathml",
+            macros: math,
+            colorIsTextColor: true,
           }
         ],
         rehypePluginCodeLine,
