@@ -57,7 +57,7 @@ export function pluginMdxRollup(config: SiteConfig) {
               dark: darkTheme,
             }
           }
-        ]
+        ],
       ]
     })
   ];

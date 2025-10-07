@@ -45,7 +45,7 @@
     flex-direction: row;
     box-sizing: border-box;
     .predoc-doc-content {
-      flex: 8 0;
+      flex: 8 0 auto;
       display: flex;
       flex-direction: column;
       box-sizing: border-box;
@@ -56,7 +56,7 @@
     .predoc-doc-toc {
       padding: var(--predoc-padding);
       height: 100%;
-      flex: 2 0;
+      flex: 2 1 auto;
       .predoc-doc-toc-box {
         position: sticky;
         top: 80px;
