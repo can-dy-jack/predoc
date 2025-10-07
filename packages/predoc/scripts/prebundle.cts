@@ -1,8 +1,14 @@
-import path from 'path';
-import fs from 'fs-extra';
-import { build } from 'esbuild';
-import resolve from 'resolve';
-import { normalizePath } from 'vite';
+// import path from 'path';
+// import fs from 'fs-extra';
+// import { build } from 'esbuild';
+// import resolve from 'resolve';
+// import { normalizePath } from 'vite';
+
+const path = require('path');
+const fs = require('fs-extra');
+const { build } = require('esbuild');
+const resolve = require('resolve');
+const { normalizePath } = require('vite');
 
 const PRE_BUNDLE_DIR = 'vendors';
 

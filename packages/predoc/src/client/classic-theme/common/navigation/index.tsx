@@ -4,6 +4,7 @@ import { Icon } from '../../components/icons';
 import { Button } from '../../components/button';
 import { Link } from '../../components/link';
 import { PropsWithIsland, RouteItem, useRouters } from '@client';
+import { useLocation } from 'react-router-dom';
 
 export function Navigation() {
   const routers = useRouters();
@@ -43,7 +44,8 @@ function NavItem(props: NavItemProps & PropsWithIsland) {
   const { extra } = item;
   const text = extra?.frontmatter?.title || extra.title || item.path;
 
-  const isCur = window.location.pathname.split("/")[1] === item.path;
+  const { pathname } = useLocation();
+  const isCur = pathname.split("/")[1] === item.path;
 
   return (
     <div>
