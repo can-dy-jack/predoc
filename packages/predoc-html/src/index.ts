@@ -13,7 +13,6 @@ export function generatePredocHTML(
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   ${headElements}
-  <title>${title}</title>
   <meta name="description" content="${description}">
   <link rel="icon" href="/ico.png" type="image/png" />
 </head>

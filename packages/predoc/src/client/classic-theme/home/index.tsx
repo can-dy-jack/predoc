@@ -10,10 +10,6 @@ export function HomeLayout() {
     <div>
       <HomeHero hero={frontmatter.hero} __island />
       <HomeFeature features={frontmatter.features} />
-
-      <div>
-
-      </div>
     </div>
   );
 }

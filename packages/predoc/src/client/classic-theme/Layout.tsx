@@ -14,7 +14,9 @@ import { NotFoundLayout } from './notFound';
 import { Footer } from './common/footer/footer';
 
 export function Layout() {
-  const { pageType } = usePageData();
+  const { pageType, title, siteData } = usePageData();
+
+  console.log(1, title, siteData)
 
   const getContent = () => {
     if (pageType === 'home') {
@@ -32,6 +34,9 @@ export function Layout() {
         {getContent()}
         <Footer />  
       </div>
+
+      <title>{ title + " | " + siteData.title }</title>
+      {/* <meta name="keywords" content="predoc, html" /> */}
     </div>
   );
 }

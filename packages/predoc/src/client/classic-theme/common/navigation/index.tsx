@@ -3,18 +3,19 @@ import { SwitchAppearance } from '../../components/themeSwitch';
 import { Icon } from '../../components/icons';
 import { Button } from '../../components/button';
 import { Link } from '../../components/link';
-import { PropsWithIsland, RouteItem, useRouters } from '@client';
+import { PropsWithIsland, RouteItem, usePageData, useRouters } from '@client';
 import { useLocation } from 'react-router-dom';
 
 export function Navigation() {
   const routers = useRouters();
+  const pageData = usePageData();
 
   return (
     <header className="predoc-nav">
       <div className="nav-left">
         <img alt="logo - predoc" src="/ico.png" width="24" height="24" />
         <Link href='/'>
-          predoc
+          { pageData?.siteData?.title }
         </Link>
       </div>
       <div className="nav-right">

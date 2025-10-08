@@ -1,8 +1,8 @@
 import { defineConfig } from 'predoc';
 
 export default defineConfig({
-  title: 'My Site233',
-  description: 'This is my site description',
+  title: 'Predoc 示例文档',
+  description: '简单、强大、高性能的现代化 SSG 方案',
   themeConfig: {
     codeLine: {
       theme: {
