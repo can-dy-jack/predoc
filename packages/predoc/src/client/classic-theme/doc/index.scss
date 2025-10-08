@@ -6,6 +6,7 @@
 
   .predoc-doc-aside {
     flex: 0 0 300px;
+    min-width: 0;
     border-right: 1px solid var(--predoc-border-light);
 
     .predoc-doc-aside-container {
@@ -19,26 +20,69 @@
       .predoc-side-title {
         transition: all 250ms linear;
         cursor: pointer;
+        height: 32px;
+        display: flex;
 
-        &:hover {
+        &.current {
+          background-color: var(--predoc-bg-gray);
           .predoc-link {
             background-color: var(--predoc-bg-gray);
+            color: var(--primary);
+            border-radius: 4px 0 0 4px;
+          }
+          .predoc-side-toggle {
+            background-color: var(--predoc-bg-gray);
+          }
+        }
+
+        .predoc-side-toggle {
+          transition: all 250ms linear;
+          height: 32px;
+          width: 32px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 5px;
+
+          svg {
+            transform: rotate(180deg);
+            transform-origin: center;
+            transition: all 300ms linear;
+          }
+
+          &.close svg {
+            transform: rotate(90deg);
+          }
+        }
+
+        &:hover {
+          background-color: var(--predoc-bg-gray);
+
+          .predoc-link {
             border-radius: 4px 0 0 4px;
             color: var(--primary);
+          }
+
+          .predoc-side-toggle {
+            background-color: var(--predoc-bg-gray2);
+          }
+        }
+
+        &.predoc-link-no-index:hover {
+          .predoc-side-toggle {
+            background-color: var(--predoc-bg-gray);
           }
         }
 
         .predoc-link {
           display: inline-block;
           padding: 6px 10px;
-          width: 100%;
           border-radius: 4px 0 0 4px;
-        }
-
-        .predoc-link.current {
-          background-color: var(--predoc-bg-gray);
-          color: var(--primary);
-          border-radius: 4px 0 0 4px;
+          flex: 1;
+          cursor: pointer;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: pre;
         }
       }
     }
@@ -146,6 +190,7 @@
         transition: all 250ms linear;
         text-overflow: ellipsis;
         white-space: pre;
+
         &:hover {
           border-color: var(--primary);
         }
@@ -181,9 +226,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
     &:hover {
       background-color: var(--primary-light);
     }
+
     &:active {
       background-color: var(--primary-dark);
     }

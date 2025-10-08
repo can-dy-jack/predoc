@@ -7,10 +7,11 @@ export interface LinkProps {
   isCurrent?: boolean;
   children?: React.ReactNode;
   className?: string;
+  disabled?: boolean;
 }
 
 export function Link(props: LinkProps) {
-  const { href = '/', children, isMenu = false, isCurrent = false } = props;
+  const { href = '/', children, isMenu = false, isCurrent = false, disabled = false } = props;
 
   const isExternal = href.startsWith('http');
 
@@ -21,6 +22,7 @@ export function Link(props: LinkProps) {
       href={href}
       target={target}
       rel={rel}
+      aria-disabled={disabled}
       className={`predoc-link${isMenu ? ' predoc-link-menu' : ''}${isCurrent ? ' current' : ''}`}
     >
       {children}

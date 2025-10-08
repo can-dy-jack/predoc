@@ -4,8 +4,9 @@ import { createContext, useContext } from "react";
 export interface RouteItem {
   path: string;
   fullPath: string;
-  extra: PageModule;
+  extra?: PageModule;
   children: RouteItem[];
+  hasIndex?: Boolean;
 }
 
 export type RouteList = RouteItem[];

@@ -43,6 +43,7 @@ interface NavItemProps {
 function NavItem(props: NavItemProps & PropsWithIsland) {
   const { item } = props;
   const { extra } = item;
+
   const text = extra?.frontmatter?.title || extra.title || item.path;
 
   const { pathname } = useLocation();
