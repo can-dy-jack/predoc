@@ -5,6 +5,7 @@ import { Toc } from './toc';
 
 import './index.scss';
 import { Routers } from '@server';
+import { Back2top } from './back2top';
 
 export function DocLayout() {
   const { toc } = usePageData();
@@ -30,15 +31,7 @@ export function DocLayout() {
           </div>
         </div>
 
-        <div className='predoc-back2top' onClick={() => {
-          window.scrollTo({
-            left: 0,
-            top: 0,
-            behavior: 'smooth',
-          });
-        }}>
-          T
-        </div>
+        <Back2top />
       </div>
     </>
   );
