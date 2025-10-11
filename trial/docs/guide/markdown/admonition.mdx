@@ -1,35 +1,94 @@
 ---
 title: 警示栏
 ---
-# markdown 扩展
+# markdown 警示栏
 
-:::default{title="默认警示栏"}
+## 支持的类型
+以下是 Predoc 提供的类型限定符列表，其中默认类型及未知类型回退类型为note：
+
+`note` `info` `tip`
+:::note
+除了基本的 Markdown 语法， 我们还有一种特殊的告示语法。它用 3 个连续的冒号包裹文本，然后紧跟着一个表示其类型的文本标签。
+:::
+:::info
 除了基本的 Markdown 语法， 我们还有一种特殊的告示语法。它用 3 个连续的冒号包裹文本，然后紧跟着一个表示其类型的文本标签。
 :::
 
-:::secondary
-这里是警告内容.
-
-换行
+`summary` `tldr`
+:::summary
+除了基本的 Markdown 语法， 我们还有一种特殊的告示语法。它用 3 个连续的冒号包裹文本，然后紧跟着一个表示其类型的文本标签。
+:::
+:::tldr
+除了基本的 Markdown 语法， 我们还有一种特殊的告示语法。它用 3 个连续的冒号包裹文本，然后紧跟着一个表示其类型的文本标签。
 :::
 
-:::err{title="注意"}
-if you chose xxx, you should also use yyy somewhere…
-:::
-
+`success`
 :::success
-if you chose xxx, you should also use yyy somewhere…
+除了基本的 Markdown 语法， 我们还有一种特殊的告示语法。它用 3 个连续的冒号包裹文本，然后紧跟着一个表示其类型的文本标签。
 :::
 
+`faq` 
+:::faq
+除了基本的 Markdown 语法， 我们还有一种特殊的告示语法。它用 3 个连续的冒号包裹文本，然后紧跟着一个表示其类型的文本标签。
+:::
+
+`warning` `caution`
 :::warning
-if you chose xxx, you should also use yyy somewhere…
+除了基本的 Markdown 语法， 我们还有一种特殊的告示语法。它用 3 个连续的冒号包裹文本，然后紧跟着一个表示其类型的文本标签。
+:::
+:::caution
+除了基本的 Markdown 语法， 我们还有一种特殊的告示语法。它用 3 个连续的冒号包裹文本，然后紧跟着一个表示其类型的文本标签。
 :::
 
-:::info
-if you chose xxx, you should also use yyy somewhere…
+`danger` `err`
+:::danger
+除了基本的 Markdown 语法， 我们还有一种特殊的告示语法。它用 3 个连续的冒号包裹文本，然后紧跟着一个表示其类型的文本标签。
+:::
+:::err
+除了基本的 Markdown 语法， 我们还有一种特殊的告示语法。它用 3 个连续的冒号包裹文本，然后紧跟着一个表示其类型的文本标签。
 :::
 
-:::dark
-if you chose xxx, you should also use yyy somewhere…
+`bug`
+:::bug
+除了基本的 Markdown 语法， 我们还有一种特殊的告示语法。它用 3 个连续的冒号包裹文本，然后紧跟着一个表示其类型的文本标签。
 :::
 
+`example`
+:::example
+除了基本的 Markdown 语法， 我们还有一种特殊的告示语法。它用 3 个连续的冒号包裹文本，然后紧跟着一个表示其类型的文本标签。
+:::
+
+`quote`, `cite`
+:::quote
+除了基本的 Markdown 语法， 我们还有一种特殊的告示语法。它用 3 个连续的冒号包裹文本，然后紧跟着一个表示其类型的文本标签。
+:::
+:::cite
+除了基本的 Markdown 语法， 我们还有一种特殊的告示语法。它用 3 个连续的冒号包裹文本，然后紧跟着一个表示其类型的文本标签。
+:::
+
+## 自定义标题
+
+```markdown
+:::success{title="自定义标题"}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et 
+dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex 
+ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+ mollit anim id est laborum.
+:::
+```
+
+:::success{title="自定义标题"}
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et 
+dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex 
+ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
+fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+ mollit anim id est laborum.
+:::
+
+
+## 自定义新的警示栏
+{/* 
+如果想要自定义新的警示栏，需要一个 颜色 和 svg 的代码。
+
+可以在定义样式文件里写： */}
