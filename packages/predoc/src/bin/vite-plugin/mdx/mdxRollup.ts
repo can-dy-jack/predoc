@@ -32,8 +32,8 @@ export function pluginMdxRollup(config: SiteConfig) {
         remarkGfm, 
         remarkFrontmatter,
         remarkMath,
-        remarkAdmonitionPlugin,
         remarkDirective,
+        remarkAdmonitionPlugin,
         remarkMDXFrontMatter,
         remarkPluginToc,
       ],
@@ -70,7 +70,8 @@ export function pluginMdxRollup(config: SiteConfig) {
             }
           }
         ],
-      ]
+      ],
+      
     })
   ];
 }
