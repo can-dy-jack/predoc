@@ -73,9 +73,9 @@
   .admonition-title {
     font-weight: bold;
     margin-bottom: 1em;
-    padding-left: 1.2em;
+    padding-left: 1.5em;
     position: relative;
-    line-height: 1em;
+    line-height: 1.2em;
     &::before {
       position: absolute;
       content: '';
@@ -85,8 +85,8 @@
       mask-repeat: no-repeat;
       mask-size: contain;
       left: 0;
-      width: 1em;
-      height: 1em;
+      width: 1.2em;
+      height: 1.2em;
       vertical-align: middle;
     }
   }
