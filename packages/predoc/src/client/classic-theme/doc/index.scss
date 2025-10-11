@@ -103,7 +103,8 @@
       box-sizing: border-box;
 
       .predoc-doc-render {
-        padding: 24px;
+        margin: var(--predoc-margin-large);
+        margin-top: 0;
       }
     }
 

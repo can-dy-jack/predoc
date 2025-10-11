@@ -6,9 +6,10 @@ import { Toc } from './toc';
 import './index.scss';
 import { Routers } from '@server';
 import { Back2top } from './back2top';
+import { Breadcrumbs } from './breadcrumbs';
 
 export function DocLayout() {
-  const { toc } = usePageData();
+  const { toc,siteData  } = usePageData();
 
   return (
     <>
@@ -18,6 +19,9 @@ export function DocLayout() {
         </div>
         <div className="predoc-doc-container">
           <div className="predoc-doc-content">
+            <div className='predoc-doc-breadcrumb'>
+              <Breadcrumbs />
+            </div>
             <div className="predoc-doc-render markdown-body">
               <Routers />
             </div>

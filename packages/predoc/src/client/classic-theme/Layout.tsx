@@ -16,8 +16,6 @@ import { Footer } from './common/footer/footer';
 export function Layout() {
   const { pageType, title, siteData } = usePageData();
 
-  console.log(1, title, siteData)
-
   const getContent = () => {
     if (pageType === 'home') {
       return < HomeLayout />;

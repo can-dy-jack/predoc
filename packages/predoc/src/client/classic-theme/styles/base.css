@@ -20,3 +20,8 @@ a {
   color: var(--primary);
   text-decoration: none;
 }
+
+::selection {
+  background-color: var(--primary);
+  color: #fff;
+}

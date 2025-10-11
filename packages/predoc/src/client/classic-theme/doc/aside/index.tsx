@@ -35,7 +35,6 @@ function GroupRender(props: GroupRender) {
   const { items, level = 1 } = props;
 
   function getText(item: RouteItem) {
-    console.log(2, item.extra.frontmatter?.title,item.extra.title , item.path)
     return item.extra.frontmatter?.title || item.extra.title || item.path || "";
   }
 
